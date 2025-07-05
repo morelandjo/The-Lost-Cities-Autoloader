@@ -1,0 +1,100 @@
+Reusing configuration cache.
+> Task :generateModMetadata UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :writeServerLegacyClasspath
+
+> Task :downloadAssets
+Loaded 122 artifacts from /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /Users/josh/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/948be1c6ca491d8f6e50c6102ec34eba75f13bb3/17.json
+
+> Task :prepareServerRun
+
+> Task :runServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:35:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.41, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.186, --fml.neoFormVersion, 20240808.144430, --nogui]
+[20:35:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.7+6-LTS
+[20:35:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.7 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 15.1.1
+[20:35:57] [main/DEBUG] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Found launch services [minecraft,forgeclient,forgedatauserdev,testharness,forgeserverdev,forgeserveruserdev,forgejunitdev,forgeclientdev,forgeclientuserdev,forgeserver,forgejunituserdev,forgedatadev]
+[20:35:57] [main/DEBUG] [cp.mo.mo.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [mixin,slf4jfixer,runtime_enum_extender,accesstransformer,runtimedistcleaner]
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path GAMEDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path MODSDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/mods
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path CONFIGDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path FMLCONFIG is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/fml.toml
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Got mod coordinates lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main:lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main from env
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{lostcitiesautoloader=[/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main, /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main]}]
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: 
+[20:35:57] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : [mixin,fml]
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loading service mixin
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loaded service mixin
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loading service fml
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML 4.0.41 loading
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML found ModLauncher version : 11.0.5+main.901c6ea8
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML found AccessTransformer version : 10.0.1+139da711
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML found EventBus version : null
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: Found Runtime Dist Cleaner
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loaded service fml
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Received command line version data  : VersionInfo[neoForgeVersion=21.1.186, fmlVersion=4.0.41, mcVersion=1.21.1, neoFormVersion=20240808.144430]
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service mixin
+[20:35:57] [main/DEBUG] [mixin/]: MixinService [ModLauncher] was successfully booted in cpw.mods.cl.ModuleClassLoader@396f6598
+[20:35:57] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/Users/josh/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[20:35:57] [main/DEBUG] [mixin/]: Initialising Mixin Platform Manager
+[20:35:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:35:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:35:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:35:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:35:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service mixin
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service fml
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Setting up basic FML game directories
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path GAMEDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path MODSDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/mods
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path CONFIGDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path FMLCONFIG is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/fml.toml
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Loading configuration
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Preparing launch handler
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: Using forgeserverdev as launch service
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service fml
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service mixin
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service mixin
+[20:35:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service fml
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Initiating mod scan
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Got mod coordinates lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main:lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main from env
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{lostcitiesautoloader=[/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main, /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main]}]
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonDevLaunchHandler/]: Launching with NeoForge from /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 4 implementations of IModFileCandidateLocator:
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - [built-in] net.neoforged.fml.loading.moddiscovery.locators.NeoForgeDevProvider from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.locators.ModsFolderLocator from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.locators.MavenDirectoryLocator from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	   -1000 - [built-in] net.neoforged.fml.loading.moddiscovery.locators.UserdevLocator from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 2 implementations of IModFileReader:
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	   -1000 - net.neoforged.fml.loading.moddiscovery.readers.NestedLibraryModReader from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 1 implementations of IDependencyLocator:
+[20:35:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator from loader-4.0.41.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {minecraft} mods - versions {1.21.1}
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {neoforge} mods - versions {21.1.186}
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModListHandler/CORE]: Found mod coordinates from lists: []
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file main with {lostcitiesautoloader} mods - versions {1.0.0}
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {neoforge} mods - versions {21.1.186}
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/.gradle/caches/modules-2/files-2.1/curse.maven/the-lost-cities-269024/6677430/5c383add6e9e03227865b7b6bda0f35d9a5a08d8/the-lost-cities-269024-6677430.jar
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file the-lost-cities-269024-6677430.jar with {lostcities} mods - versions {1.21-8.3.0}
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged.fancymodloader/earlydisplay/4.0.41/53dfbd387ed1b88c7d144bdb6551b7f57d5da6d7/earlydisplay-4.0.41.jar because it was already located earlier
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged.fancymodloader/loader/4.0.41/3aebc81b9347fa87bb629ffaed20276f2a4c944e/loader-4.0.41.jar because it was already located earlier
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged.accesstransformers/at-modlauncher/10.0.1/5aba50202aceead086bc09fbc2751c9f05cb4890/at-modlauncher-10.0.1.jar because it was already located earlier
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/accesstransformers/10.0.1/fd83b5725f76eae9115e9355fa1c456a6a441400/accesstransformers-10.0.1.jar because it was already located earlier
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/bus/8.0.5/5b2d33285ab5d1554e9798ad98c40d6ea3868bd5/bus-8.0.5.jar because it was already located earlier
+[20:35:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/coremods/7.0.3/9147e6f638b4272b3bd5fc8f92ad37802512c6c/coremods-7.0.3.jar because it was already located earlier

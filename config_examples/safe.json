@@ -1,0 +1,11 @@
+{
+    "profile": "safe",
+    "description": "No spawners with lighting enabled",
+    "settings": {
+        "cityChance": 0.03,
+        "generateSpawners": false,
+        "generateLighting": true,
+        "generateLoot": true,
+        "ruinChance": 0.05
+    }
+}

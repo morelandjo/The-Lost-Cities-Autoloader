@@ -1,0 +1,12 @@
+{
+    "profile": "default",
+    "description": "Balanced cities suitable for survival gameplay",
+    "settings": {
+        "cityChance": 0.02,
+        "generateSpawners": true,
+        "generateLighting": true,
+        "generateLoot": true,
+        "ruinChance": 0.1,
+        "vineChance": 0.1
+    }
+}

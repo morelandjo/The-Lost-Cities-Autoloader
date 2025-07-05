@@ -1,0 +1,13 @@
+{
+    "profile": "cavern",
+    "description": "Cities in custom dimension with overworld spawn - demonstrates dimension separation",
+    "settings": {
+        "cityChance": 0.08,
+        "cityRadius": 150,
+        "generateLighting": true,
+        "generateSpawners": true,
+        "generateLoot": true,
+        "ruinChance": 0.2,
+        "vineChance": 0.15
+    }
+}

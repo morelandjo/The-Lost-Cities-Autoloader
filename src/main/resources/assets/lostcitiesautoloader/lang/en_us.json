@@ -1,0 +1,22 @@
+{
+  "lostcitiesautoloader.config.title": "Lost Cities Autoloader Configuration",
+  "lostcitiesautoloader.config.enableAutoloader": "Enable Autoloader",
+  "lostcitiesautoloader.config.enableAutoloader.tooltip": "Enable the Lost Cities autoloader functionality",
+  "lostcitiesautoloader.config.configFileName": "Configuration File Name",
+  "lostcitiesautoloader.config.configFileName.tooltip": "Name of the configuration file to load from config/lost_cities_autoloader/ directory (without .json extension)",
+  "lostcitiesautoloader.config.lostCityDimension": "Lost City Dimension",
+  "lostcitiesautoloader.config.lostCityDimension.tooltip": "Dimension where Lost Cities should generate",
+  "lostcitiesautoloader.config.enableCustomSpawn": "Enable Custom Spawn",
+  "lostcitiesautoloader.config.enableCustomSpawn.tooltip": "Enable custom player spawn dimension (separate from Lost Cities dimension)",
+  "lostcitiesautoloader.config.playerSpawnDimension": "Player Spawn Dimension",
+  "lostcitiesautoloader.config.playerSpawnDimension.tooltip": "Dimension where players should spawn when joining the world",
+  
+  "lostcitiesautoloader.message.loaded": "Lost Cities Autoloader loaded successfully",
+  "lostcitiesautoloader.message.profile_applied": "Applied Lost Cities profile: %s",
+  "lostcitiesautoloader.message.no_config": "No autoloader configuration found - using default settings",
+  "lostcitiesautoloader.message.lostcities_not_found": "Lost Cities mod not found - autoloader will not function",
+  
+  "lostcitiesautoloader.error.config_load": "Failed to load autoloader configuration",
+  "lostcitiesautoloader.error.profile_apply": "Failed to apply profile to Lost Cities",
+  "lostcitiesautoloader.error.invalid_profile": "Profile '%s' not found in Lost Cities"
+}

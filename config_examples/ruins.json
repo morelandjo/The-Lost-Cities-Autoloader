@@ -1,0 +1,12 @@
+{
+    "profile": "ancient",
+    "description": "Ruins",
+    "settings": {
+        "cityChance": 0.01,
+        "generateSpawners": true,
+        "generateLighting": false,
+        "generateLoot": true,
+        "ruinChance": 0.8,
+        "vineChance": 0.2
+    }
+}

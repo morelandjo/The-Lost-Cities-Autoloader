@@ -1,0 +1,12 @@
+{
+    "profile": "tallbuildings",
+    "description": "Massive cities",
+    "settings": {
+        "cityChance": 0.15,
+        "cityRadius": 200,
+        "generateLighting": true,
+        "generateSpawners": false,
+        "ruinChance": 0.0,
+        "vineChance": 0.0
+    }
+}

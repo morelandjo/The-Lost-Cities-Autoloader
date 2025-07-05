@@ -1,0 +1,604 @@
+Reusing configuration cache.
+> Task :generateModMetadata UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :createMinecraftArtifacts UP-TO-DATE
+> Task :compileJava UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :writeServerLegacyClasspath
+
+> Task :downloadAssets
+Loaded 122 artifacts from /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/tmp/downloadAssets/nfrt_artifact_manifest.properties
+Downloading asset index 17
+Using Minecraft asset root: /Users/josh/.gradle/caches/neoformruntime/assets
+  ↓ https://piston-meta.mojang.com/v1/packages/948be1c6ca491d8f6e50c6102ec34eba75f13bb3/17.json
+
+> Task :prepareServerRun
+
+> Task :runServer
+WARN StatusConsoleListener Advanced terminal features are not available in this environment
+[20:27:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeserverdev, --gameDir, ., --fml.fmlVersion, 4.0.41, --fml.mcVersion, 1.21.1, --fml.neoForgeVersion, 21.1.186, --fml.neoFormVersion, 20240808.144430, --nogui]
+[20:27:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: JVM identified as Eclipse Adoptium OpenJDK 64-Bit Server VM 21.0.7+6-LTS
+[20:27:57] [main/INFO] [cp.mo.mo.Launcher/MODLAUNCHER]: ModLauncher 11.0.5+main.901c6ea8 starting: java version 21.0.7 by Eclipse Adoptium; OS Mac OS X arch aarch64 version 15.1.1
+[20:27:57] [main/DEBUG] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Found launch services [minecraft,forgeclient,forgedatauserdev,testharness,forgeserverdev,forgeserveruserdev,forgejunitdev,forgeclientdev,forgeclientuserdev,forgeserver,forgejunituserdev,forgedatadev]
+[20:27:57] [main/DEBUG] [cp.mo.mo.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [mixin,slf4jfixer,runtime_enum_extender,accesstransformer,runtimedistcleaner]
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path GAMEDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path MODSDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/mods
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path CONFIGDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path FMLCONFIG is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/fml.toml
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Got mod coordinates lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main:lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main from env
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{lostcitiesautoloader=[/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main, /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main]}]
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: 
+[20:27:57] [main/INFO] [ne.ne.fm.lo.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgeserverdev
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : [mixin,fml]
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loading service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loaded service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loading service fml
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML 4.0.41 loading
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML found ModLauncher version : 11.0.5+main.901c6ea8
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML found AccessTransformer version : 10.0.1+139da711
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: FML found EventBus version : null
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: Found Runtime Dist Cleaner
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Loaded service fml
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Received command line version data  : VersionInfo[neoForgeVersion=21.1.186, fmlVersion=4.0.41, mcVersion=1.21.1, neoFormVersion=20240808.144430]
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service mixin
+[20:27:57] [main/DEBUG] [mixin/]: MixinService [ModLauncher] was successfully booted in cpw.mods.cl.ModuleClassLoader@5a1c0542
+[20:27:57] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:/Users/josh/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar%2394!/ Service=ModLauncher Env=SERVER
+[20:27:57] [main/DEBUG] [mixin/]: Initialising Mixin Platform Manager
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service fml
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Setting up basic FML game directories
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path GAMEDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path MODSDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/mods
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path CONFIGDIR is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLPaths/CORE]: Path FMLCONFIG is /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/fml.toml
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Loading configuration
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Preparing launch handler
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLLoader/CORE]: Using forgeserverdev as launch service
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service fml
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service fml
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Initiating mod scan
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Got mod coordinates lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main:lostcitiesautoloader%%/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main from env
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{lostcitiesautoloader=[/Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main, /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/resources/main]}]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ta.CommonDevLaunchHandler/]: Launching with NeoForge from /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 4 implementations of IModFileCandidateLocator:
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - [built-in] net.neoforged.fml.loading.moddiscovery.locators.NeoForgeDevProvider from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.locators.ModsFolderLocator from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.locators.MavenDirectoryLocator from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	   -1000 - [built-in] net.neoforged.fml.loading.moddiscovery.locators.UserdevLocator from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 2 implementations of IModFileReader:
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	   -1000 - net.neoforged.fml.loading.moddiscovery.readers.NestedLibraryModReader from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 1 implementations of IDependencyLocator:
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	       0 - net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {minecraft} mods - versions {1.21.1}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {neoforge} mods - versions {21.1.186}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModListHandler/CORE]: Found mod coordinates from lists: []
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file main with {lostcitiesautoloader} mods - versions {1.0.0}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {neoforge} mods - versions {21.1.186}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/.gradle/caches/modules-2/files-2.1/curse.maven/the-lost-cities-269024/6677430/5c383add6e9e03227865b7b6bda0f35d9a5a08d8/the-lost-cities-269024-6677430.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file the-lost-cities-269024-6677430.jar with {lostcities} mods - versions {1.21-8.3.0}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged.fancymodloader/earlydisplay/4.0.41/53dfbd387ed1b88c7d144bdb6551b7f57d5da6d7/earlydisplay-4.0.41.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged.fancymodloader/loader/4.0.41/3aebc81b9347fa87bb629ffaed20276f2a4c944e/loader-4.0.41.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged.accesstransformers/at-modlauncher/10.0.1/5aba50202aceead086bc09fbc2751c9f05cb4890/at-modlauncher-10.0.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/accesstransformers/10.0.1/fd83b5725f76eae9115e9355fa1c456a6a441400/accesstransformers-10.0.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/bus/8.0.5/5b2d33285ab5d1554e9798ad98c40d6ea3868bd5/bus-8.0.5.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/coremods/7.0.3/9147e6f638b4272b3bd5fc8f92ad37802512c6c/coremods-7.0.3.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/cpw.mods/modlauncher/11.0.5/b8f0d49294f733fdb6173931b263553e943dc950/modlauncher-11.0.5.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/mergetool/2.0.0/52fe1949be64e3303aabaaa21e315f551db9c9f4/mergetool-2.0.0-api.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/toml/3.8.2/c128842f759692f613ea6c3ef0ef052273bbb38c/toml-3.8.2.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.electronwill.night-config/core/3.8.2/94eee571e1524129804d08c75f6416a3be380ad4/core-3.8.2.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/JarJarSelector/0.4.1/fb3cc7a58af22ad2880adb98af6d518128c47dae/JarJarSelector-0.4.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.neoforged/JarJarMetadata/0.4.1/f8da03683dc81694556dc3e177c5e3bb77ae6fcb/JarJarMetadata-0.4.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.8.5/4433f50c07debefaed0553bd0068f4f48d449313/maven-artifact-3.8.5.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.jodah/typetools/0.6.3/a01aaa6ddaea9ec07ec4f209487b7a46a526283a/typetools-0.6.3.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.minecrell/terminalconsoleappender/1.3.0/b562e9bb61235c9520e26282cdee71f8f802d1fc/terminalconsoleappender-1.3.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.openjdk.nashorn/nashorn-core/15.4/f67f5ffaa5f5130cf6fb9b133da00c7df3b532a5/nashorn-core-15.4.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.14.0/1ed471194b02f2c6cb734a0cd6f6f107c673afae/commons-lang3-3.14.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.mojang/logging/1.2.7/24cb95ffb0e3433fd6e844c04e68009e504ca1c0/logging-1.2.7.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.22.1/d7e6693c2606cb7e7335047d7bb96dec52db5665/log4j-slf4j2-impl-2.22.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.22.1/7183a25510a02ad00cc6a95d3b3d2a7d3c5a8dc4/log4j-core-2.22.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.22.1/bea6fede6328fabafd7e68363161a7ea6605abd1/log4j-api-2.22.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.13.1/17125bae1d965624e265ef49552f6465a2bfa307/antlr4-runtime-4.13.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.minecraftforge/srgutils/0.4.15/ca408b131759478f164e010fae0d73997e125fb5/srgutils-0.4.15.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.3.0/cf43b5391de623b36fe066a21127baef82c64022/plexus-utils-3.3.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.jline/jline-reader/3.20.0/8f15415b022a25b473e8e16c28ae913186ffb9c4/jline-reader-3.20.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.machinezoo.noexception/noexception/1.7.1/b65330c98e38a1f915fa54a6e5eca496505e3f0a/noexception-1.7.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/b1d8ab82d11d92fd639b56d639f8f46f739dd5fa/oshi-core-6.4.10.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.mojang/authlib/6.0.54/de8bc95660e1b2fe8793fd427a7a10dcec5b3ea7/authlib-6.0.54.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.mojang/datafixerupper/8.0.16/67d4de6d7f95d89bcf5862995fb854ebaec02a34/datafixerupper-8.0.16.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.97.Final/f8f3d8644afa5e6e1a40a3a6aeb9d9aa970ecb4f/netty-buffer-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.97.Final/384ba4d75670befbedb45c4d3b497a93639c206d/netty-codec-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.97.Final/7cceacaf11df8dc63f23d0fb58e9d4640fc88404/netty-common-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.97.Final/abb86c6906bf512bf2b797a41cd7d2e8d3cd7c36/netty-handler-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.97.Final/cec8348108dc76c47cf87c669d514be52c922144/netty-resolver-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.97.Final/795da37ded759e862457a82d9d92c4d39ce8ecee/netty-transport-classes-epoll-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.97.Final/d469d84265ab70095b01b40886cabdd433b6e664/netty-transport-native-unix-common-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.97.Final/f37380d23c9bb079bc702910833b2fd532c9abd0/netty-transport-4.1.97.Final.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.12/c24946d46824bd528054bface3231d2ecb7e95e8/fastutil-8.5.12.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.14.0/28934d48aed814f11e4c584da55c49fa7032b31b/jna-platform-5.14.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.14.0/67bf3eaea4f0718cb376a181a629e5f88fa1c9dd/jna-5.14.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.jline/jline-terminal/3.20.0/d0ddcc708ddf527a3454c941b7b9225cc83a15ff/jline-terminal-3.20.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/de2b60b62da487644fc11f734e73c8b0b431238f/checker-qual-3.33.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.18.0/89b684257096f548fa39a7df9fdaa409d4d4df91/error_prone_annotations-2.18.0.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModDiscoverer/]: Skipping /Users/josh/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/2.8/c85270e307e7b822f1086b93689124b89768e273/j2objc-annotations-2.8.jar because it was already located earlier
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.UniqueModListBuilder/]: Found 2 mods for first modid neoforge, selecting most recent based on version data
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.UniqueModListBuilder/]: Selected file neoforge-21.1.186.jar for modid neoforge with version 21.1.186
+[20:27:57] [main/INFO] [ne.ne.fm.lo.mo.lo.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[20:27:57] [main/INFO] [ne.ne.fm.lo.mo.ModDiscoverer/]: 
+     Mod List:
+		Name Version (Mod Id)
+
+		Lost Cities Autoloader 1.0.0 (lostcitiesautoloader)
+		LostCities 1.21-8.3.0 (lostcities)
+		Minecraft 1.21.1 (minecraft)
+		NeoForge 21.1.186 (neoforge)
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {minecraft} mods - versions {1.21.1}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFile/LOADING]: Loading mod file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar with languages [LanguageSpec[languageName=minecraft, acceptedVersions=1]]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/.gradle/caches/modules-2/files-2.1/curse.maven/the-lost-cities-269024/6677430/5c383add6e9e03227865b7b6bda0f35d9a5a08d8/the-lost-cities-269024-6677430.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file the-lost-cities-269024-6677430.jar with {lostcities} mods - versions {1.21-8.3.0}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFile/LOADING]: Loading mod file /Users/josh/.gradle/caches/modules-2/files-2.1/curse.maven/the-lost-cities-269024/6677430/5c383add6e9e03227865b7b6bda0f35d9a5a08d8/the-lost-cities-269024-6677430.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[2,)]]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file main with {lostcitiesautoloader} mods - versions {1.0.0}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFile/LOADING]: Loading mod file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/classes/java/main with languages [LanguageSpec[languageName=javafml, acceptedVersions=[1,)]]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileParser/LOADING]: Considering mod file candidate /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFileInfo/LOADING]: Found valid mod file neoforge-21.1.186.jar with {neoforge} mods - versions {21.1.186}
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFile/LOADING]: Loading mod file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[3,]]]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFile/LOADING]: Found mixin config MixinConfig[config=neoforge.mixins.json, requiredMods=[]]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.mo.ModFile/LOADING]: Loading mod file  with languages []
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service fml
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 3 implementations of IModLanguageLoader:
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	net.neoforged.fml.javafmlmod.FMLJavaModLanguageProvider from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	net.neoforged.fml.lowcodemod.LowCodeModLanguageProvider from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	net.neoforged.fml.mclanguageprovider.MinecraftModLanguageProvider from loader-4.0.41.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.LanguageProviderLoader/CORE]: Found language provider javafml, version 4.0.41
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.LanguageProviderLoader/CORE]: Found language provider lowcodefml, version 4.0.41
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.LanguageProviderLoader/CORE]: Found language provider minecraft, version 4.0.41
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ModSorter/]: Configured system mods: [minecraft, neoforge]
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ModSorter/]: Found system mod: minecraft
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ModSorter/]: Found system mod: neoforge
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ModSorter/LOADING]: Found 3 mod requirements (3 mandatory, 0 optional)
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.ModSorter/LOADING]: Found 0 mod requirements missing (0 mandatory, 0 optional)
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new FMLMixinPlatformAgent for net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [mixin/]: FMLMixinPlatformAgent accepted container net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading transformers
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service mixin
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service fml
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/LOADING]: Loading coremod transformers
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Not loading coremod script-engine since no mod requested it
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: Found 1 implementations of ICoreMod:
+[20:27:57] [main/DEBUG] [ne.ne.fm.ut.ServiceLoaderUtil/CORE]: 	net.neoforged.neoforge.coremods.NeoForgeCoreMod from neoforge-21.1.186.jar > net.neoforged.neoforge-coremods-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Adding [Target[className=net.minecraft.world.level.biome.Biome, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9]] transformer from core-mod net.neoforged.neoforge.coremods.NeoForgeCoreMod@4c27d39d in neoforge-21.1.186.jar > net.neoforged.neoforge-coremods-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Adding [Target[className=net.minecraft.world.level.levelgen.structure.Structure, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9]] transformer from core-mod net.neoforged.neoforge.coremods.NeoForgeCoreMod@4c27d39d in neoforge-21.1.186.jar > net.neoforged.neoforge-coremods-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Adding [Target[className=net.minecraft.world.level.block.FlowerPotBlock, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9]] transformer from core-mod net.neoforged.neoforge.coremods.NeoForgeCoreMod@4c27d39d in neoforge-21.1.186.jar > net.neoforged.neoforge-coremods-21.1.186.jar
+[20:27:57] [main/DEBUG] [ne.ne.fm.lo.FMLServiceProvider/CORE]: Adding [Target[className=net/minecraft/world/level/levelgen/structure/structures/SwampHutPiece, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/animal/frog/Tadpole, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/monster/Evoker$EvokerSummonSpellGoal, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/levelgen/structure/structures/OceanMonumentPieces$OceanMonumentPiece, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/EntityType, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/monster/Strider, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/server/commands/RaidCommand, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/animal/horse/SkeletonTrapGoal, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/monster/Zombie, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/monster/ZombieVillager, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/raid/Raid, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/monster/Spider, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/NaturalSpawner, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/ai/village/VillageSiege, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/server/commands/SummonCommand, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/levelgen/PhantomSpawner, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$WoodlandMansionPiece, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/npc/CatSpawner, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/levelgen/PatrolSpawner, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/entity/npc/Villager, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9], Target[className=net/minecraft/world/level/levelgen/structure/structures/OceanRuinPieces$OceanRuinPiece, elementName=, elementDescriptor=, targetType=cpw.mods.modlauncher.api.TargetType@6b8d96d9]] transformer from core-mod net.neoforged.neoforge.coremods.NeoForgeCoreMod@4c27d39d in neoforge-21.1.186.jar > net.neoforged.neoforge-coremods-21.1.186.jar
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.ReplaceFieldWithGetterAccess@529cfee5 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/biome/Biome;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.ReplaceFieldWithGetterAccess@4af46df3 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/structure/Structure;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.ReplaceFieldWithGetterAccess@4158debd to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/block/FlowerPotBlock;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/structure/structures/SwampHutPiece;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/animal/frog/Tadpole;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/monster/Evoker$EvokerSummonSpellGoal;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/structure/structures/OceanMonumentPieces$OceanMonumentPiece;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/EntityType;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/monster/Strider;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/server/commands/RaidCommand;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/animal/horse/SkeletonTrapGoal;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/monster/Zombie;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/monster/ZombieVillager;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/raid/Raid;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/monster/Spider;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/NaturalSpawner;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/ai/village/VillageSiege;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/server/commands/SummonCommand;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/PhantomSpawner;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/structure/structures/WoodlandMansionPieces$WoodlandMansionPiece;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/npc/CatSpawner;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/PatrolSpawner;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/entity/npc/Villager;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformStore/MODLAUNCHER]: Adding transformer net.neoforged.neoforge.coremods.MethodRedirector@af78c87 to Target : cpw.mods.modlauncher.api.TargetType@6b8d96d9 {Lnet/minecraft/world/level/levelgen/structure/structures/OceanRuinPieces$OceanRuinPiece;} {} {V}
+[20:27:57] [main/DEBUG] [cp.mo.mo.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service fml
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912]
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[FMLMixinPlatformAgent:null]
+[20:27:57] [main/DEBUG] [mixin/]: Processing launch tasks for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new FMLMixinPlatformAgent for SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: FMLMixinPlatformAgent rejected container SecureJarResource(mixin_synthetic)
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(mixin_synthetic)]
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new FMLMixinPlatformAgent for SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: FMLMixinPlatformAgent rejected container SecureJarResource(minecraft)
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new FMLMixinPlatformAgent for SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: FMLMixinPlatformAgent rejected container SecureJarResource(lostcities)
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(lostcities)]
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new FMLMixinPlatformAgent for SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: FMLMixinPlatformAgent rejected container SecureJarResource(lostcitiesautoloader)
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(lostcitiesautoloader)]
+[20:27:57] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: Instancing new FMLMixinPlatformAgent for SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: FMLMixinPlatformAgent rejected container SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(mixinextras.neoforge)]
+[20:27:57] [main/DEBUG] [mixin/]: Registering mixin config: mixinextras.init.mixins.json source=SecureJarResource(mixinextras.neoforge)
+[20:27:57] [main/DEBUG] [mixin/]: inject() running with 7 agents
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:net.neoforged.fml.loading.mixin.FMLMixinContainerHandle@61a91912]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[FMLMixinPlatformAgent:null]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(mixin_synthetic)]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(lostcities)]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(lostcitiesautoloader)]
+[20:27:57] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(mixinextras.neoforge)]
+[20:27:57] [main/INFO] [cp.mo.mo.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeserverdev' with arguments [--gameDir, ., --nogui]
+[20:27:57] [main/DEBUG] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[20:27:57] [main/DEBUG] [mixin/]: Selecting config neoforge.mixins.json
+[20:27:57] [main/DEBUG] [mixin/]: Selecting config mixinextras.init.mixins.json
+[20:27:58] [main/DEBUG] [MixinExtras|Service/]: com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1) is taking over from null
+[20:27:58] [main/DEBUG] [mixin/]: Registering new injector for @Inject with org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo
+[20:27:58] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArg with org.spongepowered.asm.mixin.injection.struct.ModifyArgInjectionInfo
+[20:27:58] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArgs with org.spongepowered.asm.mixin.injection.struct.ModifyArgsInjectionInfo
+[20:27:58] [main/DEBUG] [mixin/]: Registering new injector for @Redirect with org.spongepowered.asm.mixin.injection.struct.RedirectInjectionInfo
+[20:27:58] [main/DEBUG] [mixin/]: Registering new injector for @ModifyVariable with org.spongepowered.asm.mixin.injection.struct.ModifyVariableInjectionInfo
+[20:27:58] [main/DEBUG] [mixin/]: Registering new injector for @ModifyConstant with org.spongepowered.asm.mixin.injection.struct.ModifyConstantInjectionInfo
+[20:27:58] [main/DEBUG] [mixin/]: Preparing neoforge.mixins.json (2)
+[20:27:58] [main/DEBUG] [mixin/]: Preparing mixinextras.init.mixins.json (0)
+[20:27:58] [main/DEBUG] [io.ne.ut.in.lo.InternalLoggerFactory/]: Using SLF4J as the default logging framework
+[20:27:58] [main/DEBUG] [io.ne.ut.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
+[20:27:58] [main/DEBUG] [io.ne.ut.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
+[20:27:58] [main/DEBUG] [os.ut.FileUtil/]: No oshi.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@6a10b263
+[20:27:59] [main/DEBUG] [os.ut.FileUtil/]: No oshi.architecture.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@6a10b263
+[20:28:00] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[20:28:00] [main/DEBUG] [mixin/]: Registering new injector for @SugarWrapper with com.llamalad7.mixinextras.sugar.impl.SugarWrapperInjectionInfo
+[20:28:00] [main/DEBUG] [mixin/]: Registering new injector for @FactoryRedirectWrapper with com.llamalad7.mixinextras.wrapper.factory.FactoryRedirectWrapperInjectionInfo
+[20:28:00] [main/DEBUG] [mixin/]: Mixing MappedRegistryAccessor from neoforge.mixins.json into net.minecraft.core.MappedRegistry
+[20:28:00] [main/DEBUG] [mixin/]: neoforge.mixins.json:MappedRegistryAccessor from mod neoforge: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[20:28:00] [main/DEBUG] [mixin/]: Mixing BlockEntityTypeAccessor from neoforge.mixins.json into net.minecraft.world.level.block.entity.BlockEntityType
+[20:28:00] [main/DEBUG] [mixin/]: neoforge.mixins.json:BlockEntityTypeAccessor from mod neoforge: Class version 65 required is higher than the class version supported by the current version of Mixin (JAVA_16 supports class version 60)
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: -Dio.netty.noUnsafe: false
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: Java version: 21
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Buffer.address: available
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: direct buffer constructor: unavailable: Reflective setAccessible(true) disabled
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable: class io.netty.util.internal.PlatformDependent0$7 (in module io.netty.common) cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to module io.netty.common
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, {int,long}): unavailable
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: sun.misc.Unsafe: available
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: maxDirectMemory: 2147483648 bytes (maybe)
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.tmpdir: /var/folders/f2/dsy5qscs1wd9zd779qkd5r3r0000gn/T (java.io.tmpdir)
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: Platform: MacOS
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.maxDirectMemory: -1 bytes
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[20:28:01] [main/DEBUG] [io.ne.ut.in.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
+[20:28:01] [main/DEBUG] [io.ne.ut.in.PlatformDependent/]: -Dio.netty.noPreferDirect: false
+[20:28:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:28:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:28:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20:28:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[20:28:03] [main/WARN] [minecraft/Commands]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[20:28:03] [main/DEBUG] [ne.ne.fm.ModWorkManager/LOADING]: Using 8 threads for parallel mod-loading
+[20:28:03] [main/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [mcjty.lostcities.LostCities]
+[20:28:03] [main/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [com.lostcitiesautoloader.LostCitiesAutoloaderMod]
+[20:28:03] [main/DEBUG] [ne.ne.fm.ja.FMLModContainer/LOADING]: Creating FMLModContainer instance for [net.neoforged.neoforge.common.NeoForgeMod]
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: === LostCitiesAutoloaderMod: Constructor START ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Mod event bus: net.neoforged.bus.EventBus@40437de7
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Mod container: net.neoforged.fml.javafmlmod.FMLModContainer@660068c4
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Thread: modloading-worker-0
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Timestamp: 2025-07-05T00:28:03.525327Z
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Constructor call stack:
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [0] java.base/java.lang.Thread.getStackTrace(Thread.java:2451)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [1] TRANSFORMER/lostcitiesautoloader@1.0.0/com.lostcitiesautoloader.LostCitiesAutoloaderMod.<init>(LostCitiesAutoloaderMod.java:41)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [2] java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [3] java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [4] java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [5] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:115)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [6] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.ModLoader.lambda$constructMods$3(ModLoader.java:153)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [7] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:231)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [8] java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [9] java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Checking AutoloaderConfig static initialization...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: === AutoloaderConfig static block START ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Time: 1751675283526
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Thread: modloading-worker-0
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: ClassLoader: cpw.mods.modlauncher.TransformingClassLoader@6a10b263
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Stack trace:
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [0] java.base/java.lang.Thread.getStackTrace(Thread.java:2451)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [1] TRANSFORMER/lostcitiesautoloader@1.0.0/com.lostcitiesautoloader.AutoloaderConfig.<clinit>(AutoloaderConfig.java:134)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [2] TRANSFORMER/lostcitiesautoloader@1.0.0/com.lostcitiesautoloader.LostCitiesAutoloaderMod.<init>(LostCitiesAutoloaderMod.java:48)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [3] java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [4] java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [5] java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [6] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:115)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [7] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.ModLoader.lambda$constructMods$3(ModLoader.java:153)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [8] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.ModLoader.lambda$dispatchParallelTask$7(ModLoader.java:231)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [9] java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [10] java.base/java.util.concurrent.CompletableFuture$UniHandle.tryFire(CompletableFuture.java:911)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [11] java.base/java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [12] java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:387)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [13] java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1312)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   [14] java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1843)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Creating ModConfigSpec.Builder...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder created: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Calling builder.configure(AutoloaderConfig::new)...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: === AutoloaderConfig constructor START ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder class: class net.neoforged.neoforge.common.ModConfigSpec$Builder
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder hashCode: 1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 1: Pushing 'general' section...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after push: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 2: Adding section comment...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after comment: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 3: Defining enableAutoloader...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder before enableAutoloader: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder after comment: hashCode=1549613546
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.ne.in.ve.ne.NeoForgeVersion/CORE]: Found NeoForge version 21.1.186
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.ne.in.ve.ne.NeoForgeVersion/CORE]: Found FML version 4.0.41
+[20:28:03] [modloading-worker-0/INFO] [ne.ne.ne.co.NeoForgeMod/NEOFORGE-MOD]: NeoForge mod loading, version 21.1.186, for MC 1.21.1
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: enableAutoloader defined: net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@6822756c
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: enableAutoloader class: class net.neoforged.neoforge.common.ModConfigSpec$BooleanValue
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: enableAutoloader path: [general, enableAutoloader]
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after enableAutoloader: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 4: Defining configFileName...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder before configFileName: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder after comment: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: configFileName defined: net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@63059f50
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: configFileName class: class net.neoforged.neoforge.common.ModConfigSpec$ConfigValue
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: configFileName path: [general, configFileName]
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after configFileName: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 5: Adding dimension comment...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after dimension comment: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 6: Defining lostCityDimension...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder before lostCityDimension: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder after comment: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: lostCityDimension defined: net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@2fa9e527
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: lostCityDimension class: class net.neoforged.neoforge.common.ModConfigSpec$ConfigValue
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: lostCityDimension path: [general, lostCityDimension]
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after lostCityDimension: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 7: Defining enableCustomSpawn...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder before enableCustomSpawn: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder after comment: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: enableCustomSpawn defined: net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@404f5fed
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: enableCustomSpawn class: class net.neoforged.neoforge.common.ModConfigSpec$BooleanValue
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: enableCustomSpawn path: [general, enableCustomSpawn]
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after enableCustomSpawn: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 8: Defining playerSpawnDimension...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder before playerSpawnDimension: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder after comment: hashCode=1549613546
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: playerSpawnDimension defined: net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@319ddd55
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ModContainer/]: Attempted to register an empty config for type CLIENT on mod lostcities using file name lostcities/client.toml
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: playerSpawnDimension class: class net.neoforged.neoforge.common.ModConfigSpec$ConfigValue
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: playerSpawnDimension path: [general, playerSpawnDimension]
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after playerSpawnDimension: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: STEP 9: Popping 'general' section...
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Builder state after pop: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: === AutoloaderConfig constructor COMPLETE ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Final constructor state - Builder: net.neoforged.neoforge.common.ModConfigSpec$Builder@5c5d39ea
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Configure method returned pair: (com.lostcitiesautoloader.AutoloaderConfig@79689fcb,net.neoforged.neoforge.common.ModConfigSpec@44fc23ec)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: CONFIG instance: com.lostcitiesautoloader.AutoloaderConfig@79689fcb
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: SPEC instance: net.neoforged.neoforge.common.ModConfigSpec@44fc23ec
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Config spec contains 1 value definitions
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Values in spec:
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   general -> SimpleConfig:{enableAutoloader=net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@6822756c, configFileName=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@63059f50, lostCityDimension=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@2fa9e527, enableCustomSpawn=net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@404f5fed, playerSpawnDimension=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@319ddd55}
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Testing field access:
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   CONFIG.enableAutoloader: net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@6822756c
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   CONFIG.configFileName: net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@63059f50
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   CONFIG.lostCityDimension: net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@2fa9e527
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   CONFIG.enableCustomSpawn: net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@404f5fed
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]:   CONFIG.playerSpawnDimension: net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@319ddd55
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: === AutoloaderConfig static block COMPLETE ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.AutoloaderConfig/]: Duration: 9 ms
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: AutoloaderConfig.CONFIG: com.lostcitiesautoloader.AutoloaderConfig@79689fcb
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: AutoloaderConfig.SPEC: net.neoforged.neoforge.common.ModConfigSpec@44fc23ec
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Starting config file watcher for debugging...
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file lostcities/common.toml for lostcities tracking
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-client.toml for neoforge tracking
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-server.toml for neoforge tracking
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file lostcities-server.toml for lostcities tracking
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file neoforge-common.toml for neoforge tracking
+[20:28:03] [modloading-worker-0/INFO] [co.lo.ConfigFileWatcher/]: === Starting config file watcher on: /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config ===
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for lostcities
+[20:28:03] [modloading-worker-0/INFO] [co.lo.ConfigFileWatcher/]: Config file watcher started successfully
+[20:28:03] [ConfigFileWatcher/INFO] [co.lo.ConfigFileWatcher/]: Config file watcher thread started
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: === Registering config spec ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Mod container class: net.neoforged.fml.javafmlmod.FMLModContainer
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Mod container ID: lostcitiesautoloader
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config spec type: net.neoforged.neoforge.common.ModConfigSpec
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config spec hash: 1157374956
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config spec values count before registration: 1
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Values in spec before registration:
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]:   general -> SimpleConfig:{enableAutoloader=net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@6822756c, configFileName=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@63059f50, lostCityDimension=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@2fa9e527, enableCustomSpawn=net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@404f5fed, playerSpawnDimension=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@319ddd55} (type: SimpleConfig)
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Registering config with mod container...
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Config file lostcitiesautoloader-common.toml for lostcitiesautoloader tracking
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: === Config spec registered successfully in 1 ms ===
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: === LostCitiesAutoloaderMod: Constructor COMPLETE ===
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for lostcitiesautoloader
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class com.lostcitiesautoloader.DimensionManager for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lcom/lostcitiesautoloader/DimensionManager; to the game event bus
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for neoforge
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.filters.GenericPacketSplitter for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.AbstractByteBuf/]: -Dio.netty.buffer.checkAccessible: true
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.AbstractByteBuf/]: -Dio.netty.buffer.checkBounds: true
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.ut.ResourceLeakDetectorFactory/]: Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@48493549
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.ut.in.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.ut.in.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.numHeapArenas: 16
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.numDirectArenas: 16
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.pageSize: 8192
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxOrder: 9
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.chunkSize: 4194304
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.smallCacheSize: 256
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.normalCacheSize: 64
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimInterval: 8192
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.useCacheForAllThreads: false
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.allocator.type: pooled
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.threadLocalDirectBufferSize: 0
+[20:28:03] [modloading-worker-0/DEBUG] [io.ne.bu.ByteBufUtil/]: -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/filters/GenericPacketSplitter; to the mod event bus of mod neoforge
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.NetworkInitialization for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/NetworkInitialization; to the mod event bus of mod neoforge
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.network.ConfigurationInitialization for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/network/ConfigurationInitialization; to the mod event bus of mod neoforge
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.MonsterRoomHooks for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/MonsterRoomHooks; to the game event bus
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.common.DeferredSpawnEggItem$CommonHandler for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/common/DeferredSpawnEggItem$CommonHandler; to the mod event bus of mod neoforge
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/LOADING]: Scanning class net.neoforged.neoforge.attachment.AttachmentInternals for @SubscribeEvent-annotated methods
+[20:28:03] [modloading-worker-0/DEBUG] [ne.ne.fm.ja.AutomaticEventSubscriber/]: Subscribing @EventBusSubscriber class Lnet/neoforged/neoforge/attachment/AttachmentInternals; to the game event bus
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Dispatching synchronous work for work queue Mod Construction: 1 jobs
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Synchronous work queue completed in 1.028 ms
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loading configs type COMMON
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/lostcities/common.toml
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/lostcities/common.toml for changes
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.ne.co.NeoForgeConfig/FORGEMOD]: Loaded NeoForge config file neoforge-common.toml
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/neoforge-common.toml
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/neoforge-common.toml for changes
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: === CONFIG LOADING EVENT START ===
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Timestamp: 1751675283702 (2025-07-05T00:28:03.702619Z)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Event: net.neoforged.fml.event.config.ModConfigEvent$Loading@38105dbc
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config: net.neoforged.fml.config.ModConfig@7f43d9f6
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config file: lostcitiesautoloader-common.toml
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config type: COMMON
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config spec: net.neoforged.neoforge.common.ModConfigSpec@44fc23ec
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config spec hash: 1157374956
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Our spec hash: 1157374956
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Is our config? true
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Thread: modloading-sync-worker
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config loading call stack:
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [0] java.base/java.lang.Thread.getStackTrace(Thread.java:2451)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [1] TRANSFORMER/lostcitiesautoloader@1.0.0/com.lostcitiesautoloader.LostCitiesAutoloaderMod.onConfigLoading(LostCitiesAutoloaderMod.java:214)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [2] MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.ConsumerEventHandler.invoke(ConsumerEventHandler.java:27)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [3] MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:360)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [4] MC-BOOTSTRAP/net.neoforged.bus/net.neoforged.bus.EventBus.post(EventBus.java:328)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [5] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.ModContainer.acceptEvent(ModContainer.java:158)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [6] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.config.ModConfig.setConfig(ModConfig.java:79)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [7] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.config.ConfigTracker.loadConfig(ConfigTracker.java:197)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [8] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.config.ConfigTracker.openConfig(ConfigTracker.java:140)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [9] MC-BOOTSTRAP/fml_loader@4.0.41/net.neoforged.fml.config.ConfigTracker.lambda$loadConfigs$2(ConfigTracker.java:124)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [10] java.base/java.lang.Iterable.forEach(Iterable.java:75)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   [11] java.base/java.util.Collections$SynchronizedCollection.forEach(Collections.java:2351)
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: *** THIS IS OUR CONFIG LOADING ***
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Our config spec loaded: true
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Config spec values count: 1
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: Values in loaded spec:
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]:   general -> SimpleConfig:{enableAutoloader=net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@6822756c, configFileName=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@63059f50, lostCityDimension=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@2fa9e527, enableCustomSpawn=net.neoforged.neoforge.common.ModConfigSpec$BooleanValue@404f5fed, playerSpawnDimension=net.neoforged.neoforge.common.ModConfigSpec$ConfigValue@319ddd55}
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: *** END OUR CONFIG LOADING ***
+[20:28:03] [modloading-sync-worker/INFO] [co.lo.LostCitiesAutoloaderMod/]: === CONFIG LOADING EVENT END ===
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Loaded TOML config file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/lostcitiesautoloader-common.toml
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Watching TOML config file /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/config/lostcitiesautoloader-common.toml for changes
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Lost Cities Autoloader - Common Setup
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Initializing dimension management features
+[20:28:03] [modloading-worker-0/INFO] [co.lo.LostCitiesAutoloaderMod/]: Common setup complete - config will be accessed later during server startup
+[20:28:03] [modloading-worker-0/INFO] [lostcities/]: Creating standard profiles into 'config/lostcities/profiles'
+[20:28:03] [modloading-worker-0/INFO] [lostcities/]: Reading existing profiles from 'config/lostcities/profiles'
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Dispatching synchronous work for work queue Common setup: 1 jobs
+[20:28:03] [modloading-sync-worker/DEBUG] [ne.ne.fm.DeferredWorkQueue/LOADING]: Synchronous work queue completed in 334.0 μs
+[20:28:03] [main/INFO] [mojang/YggdrasilAuthenticationService]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[20:28:03] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/Users/josh/Documents/minecraft%20modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar%23125!/assets/.mcassetsroot' uses unexpected schema
+[20:28:03] [main/WARN] [minecraft/VanillaPackResourcesBuilder]: Assets URL 'union:/Users/josh/Documents/minecraft%20modding/The-Lost-Cities-Autoloader/build/moddev/artifacts/neoforge-21.1.186.jar%23125!/data/.mcassetsroot' uses unexpected schema
+[20:28:04] [main/INFO] [minecraft/RecipeManager]: Loaded 1290 recipes
+[20:28:04] [main/INFO] [minecraft/AdvancementTree]: Loaded 1399 advancements
+[20:28:04] [main/DEBUG] [ne.ne.ne.co.CommonHooks/WP]: Gathered mod list to write to world save world
+[20:28:04] [Server thread/INFO] [minecraft/DedicatedServer]: Starting minecraft server version 1.21.1
+[20:28:04] [Server thread/INFO] [minecraft/DedicatedServer]: Loading properties
+[20:28:04] [Server thread/INFO] [minecraft/DedicatedServer]: Default game type: SURVIVAL
+[20:28:04] [Server thread/INFO] [minecraft/MinecraftServer]: Generating keypair
+[20:28:05] [Server thread/INFO] [minecraft/DedicatedServer]: Starting Minecraft server on *:25565
+[20:28:05] [Server thread/DEBUG] [ne.ne.ne.ne.DualStackUtils/]: Detected IPv6 address: "0:0:0:0:0:0:0:0"
+[20:28:05] [Server thread/DEBUG] [io.ne.ch.MultithreadEventLoopGroup/]: -Dio.netty.eventLoopThreads: 16
+[20:28:05] [Server thread/DEBUG] [io.ne.ut.co.GlobalEventExecutor/]: -Dio.netty.globalEventExecutor.quietPeriodSeconds: 1
+[20:28:05] [Server thread/DEBUG] [io.ne.ch.ni.NioEventLoop/]: -Dio.netty.noKeySetOptimization: false
+[20:28:05] [Server thread/DEBUG] [io.ne.ch.ni.NioEventLoop/]: -Dio.netty.selectorAutoRebuildThreshold: 512
+[20:28:05] [Server thread/DEBUG] [io.ne.ut.in.PlatformDependent/]: org.jctools-core.MpscChunkedArrayQueue: available
+[20:28:05] [Server thread/INFO] [minecraft/ServerConnectionListener]: Using default channel type
+[20:28:05] [Server thread/DEBUG] [io.ne.ch.DefaultChannelId/]: -Dio.netty.processId: 95969 (auto-detected)
+[20:28:05] [Server thread/DEBUG] [io.ne.ut.NetUtil/]: -Djava.net.preferIPv4Stack: false
+[20:28:05] [Server thread/DEBUG] [io.ne.ut.NetUtil/]: -Djava.net.preferIPv6Addresses: true
+[20:28:05] [Server thread/DEBUG] [io.ne.ut.NetUtilInitializations/]: Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+[20:28:05] [Server thread/DEBUG] [io.ne.ut.NetUtil/]: Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+[20:28:05] [Server thread/DEBUG] [io.ne.ch.DefaultChannelId/]: -Dio.netty.machineId: b6:a5:a0:ff:fe:c1:d7:e6 (auto-detected)
+[20:28:05] [Server thread/WARN] [minecraft/DedicatedServer]: **** FAILED TO BIND TO PORT!
+[20:28:05] [Server thread/WARN] [minecraft/DedicatedServer]: The exception was: java.net.BindException: Address already in use
+[20:28:05] [Server thread/WARN] [minecraft/DedicatedServer]: Perhaps a server is already running on that port?
+[20:28:05] [Server thread/ERROR] [minecraft/MinecraftServer]: Encountered an unexpected exception
+java.lang.IllegalStateException: Failed to initialize server
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:677) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+[20:28:05] [Server thread/DEBUG] [os.ut.FileUtil/]: No oshi.architecture.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@6a10b263
+[20:28:05] [Server thread/FATAL] [ne.ne.ne.co.NeoForgeMod/]: Preparing crash report with UUID 82b31f9b-f51e-4589-bc78-6758c62990a1
+[20:28:05] [Server thread/ERROR] [minecraft/MinecraftServer]: This crash report has been saved to: /Users/josh/Documents/minecraft modding/The-Lost-Cities-Autoloader/run/crash-reports/crash-2025-07-04_20.28.05-server.txt
+[20:28:05] [Server thread/INFO] [minecraft/MinecraftServer]: Stopping server
+[20:28:05] [Server thread/INFO] [minecraft/MinecraftServer]: Saving worlds
+[20:28:05] [Server thread/ERROR] [minecraft/MinecraftServer]: Exception stopping the server
+java.lang.NullPointerException: Cannot invoke "net.minecraft.server.level.ServerLevel.getWorldBorder()" because "serverlevel2" is null
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.saveAllChunks(MinecraftServer.java:560) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.stopServer(MinecraftServer.java:625) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.dedicated.DedicatedServer.stopServer(DedicatedServer.java:570) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:748) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at TRANSFORMER/minecraft@1.21.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:267) ~[neoforge-21.1.186.jar%23125!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?] {}
+[20:28:05] [Server thread/DEBUG] [ne.ne.fm.co.ConfigTracker/CONFIG]: Unloading configs type SERVER
+
+BUILD SUCCESSFUL in 10s
+8 actionable tasks: 4 executed, 4 up-to-date
+Configuration cache entry reused.

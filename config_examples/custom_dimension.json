@@ -1,0 +1,12 @@
+{
+    "profile": "default",
+    "description": "Lost Cities in a custom dimension with separate player spawn",
+    "settings": {
+        "cityChance": 0.05,
+        "generateSpawners": true,
+        "generateLighting": true,
+        "generateLoot": true,
+        "ruinChance": 0.15,
+        "vineChance": 0.1
+    }
+}

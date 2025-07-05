@@ -19,6 +19,21 @@ group = mod_group_id
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
+    
+    // McJtyMods Maven repository for Lost Cities
+    maven {
+        name = 'McJtyMods'
+        url = 'https://maven.mcjty.eu/'
+    }
+    
+    // CurseMaven for mods
+    maven {
+        name = 'CurseMaven'
+        url = 'https://cursemaven.com'
+        content {
+            includeGroup 'curse.maven'
+        }
+    }
 }
 
 base {
@@ -112,6 +127,10 @@ configurations {
 }
 
 dependencies {
+    // Lost Cities mod dependency for testing - available during development but not required for distribution
+    // Users must install Lost Cities separately in production
+    localRuntime "curse.maven:the-lost-cities-269024:6677430"
+    
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
