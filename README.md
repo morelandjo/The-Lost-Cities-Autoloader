@@ -1,7 +1,9 @@
 
 # Lost Cities Autoloader
 
-A NeoForge mod for Minecraft 1.21.1 that automatically applies Lost Cities profiles to new worlds without requiring manual configuration in the world creation screen.
+A Minecraft mod that automatically applies Lost Cities profiles to new worlds without requiring manual configuration in the world creation screen.
+
+Normally to get Lost Cities content in a new world you have to go through a separate screen with many different settings. This mod is ideal for mod packs that want to have Lost Cities in the world by default without the player setting them up.
 
 ## Requirements
 
@@ -25,7 +27,7 @@ This mod automatically detects when The Lost Cities mod is present and applies c
 
 ### Configuration Selection
 
-The mod uses a specific configuration file based on the `configFileName` setting in the mod's config. By default, it looks for `survival_cities.json`. You can change this in the NeoForge config system or by editing the config file directly.
+The mod uses a specific configuration file based on the `configFileName` setting in the mod's config. By default, it looks for `survival_cities.json`.
 
 ### Configuration Files
 
@@ -103,6 +105,7 @@ You can override specific settings by including a `settings` object. Common sett
 - Existing worlds keep their original generation settings
 
 ### Dimension Requirements
+- This is a fun little addition allowing you to start a world right in a specific dimension, such as Nether with cities.
 - Target dimensions must exist (provided by mods or vanilla)
 - Lost Cities must support the target dimension type
 - Custom dimensions may require additional configuration
