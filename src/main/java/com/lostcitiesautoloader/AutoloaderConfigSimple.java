@@ -13,6 +13,8 @@ public class AutoloaderConfigSimple {
     public static final ModConfigSpec.ConfigValue<String> LOST_CITY_DIMENSION;
     public static final ModConfigSpec.BooleanValue ENABLE_CUSTOM_SPAWN;
     public static final ModConfigSpec.ConfigValue<String> PLAYER_SPAWN_DIMENSION;
+    public static final ModConfigSpec.ConfigValue<String> PLAYER_SPAWN_COORDINATES;
+    public static final ModConfigSpec.ConfigValue<String> PLAYER_SPAWN_FACING;
     
     static {
         BUILDER.comment("Lost Cities Autoloader Configuration");
@@ -40,6 +42,20 @@ public class AutoloaderConfigSimple {
                     "This can be different from the Lost Cities dimension",
                     "Only used if enable_custom_spawn is true")
             .define("player_spawn_dimension", "minecraft:overworld");
+            
+        PLAYER_SPAWN_COORDINATES = BUILDER
+            .comment("Coordinates where players should spawn in the format 'x,y,z'",
+                    "Example: '0,64,0' spawns at world center at Y level 64",
+                    "Leave empty or comment out to use default spawn location",
+                    "Only used if enable_custom_spawn is true")
+            .define("player_spawn_coordinates", "");
+            
+        PLAYER_SPAWN_FACING = BUILDER
+            .comment("Direction the player should face when spawning (in degrees)",
+                    "0=North, 90=East, 180=South, 270=West",
+                    "Leave empty or comment out to use default spawn facing",
+                    "Only used if enable_custom_spawn is true")
+            .define("player_spawn_facing", "");
         
         SPEC = BUILDER.build();
     }

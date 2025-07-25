@@ -100,11 +100,15 @@ public class DimensionManager {
             }
             
             String playerSpawnDimension = AutoloaderConfigSimple.PLAYER_SPAWN_DIMENSION.get();
-            LOGGER.info("Custom spawn enabled - target dimension: {}", playerSpawnDimension);
+            String playerSpawnCoordinates = AutoloaderConfigSimple.PLAYER_SPAWN_COORDINATES.get();
+            String playerSpawnFacing = AutoloaderConfigSimple.PLAYER_SPAWN_FACING.get();
             
-            // Teleport player to custom dimension
+            LOGGER.info("Custom spawn enabled - target dimension: {}, coordinates: '{}', facing: '{}'", 
+                       playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
+            
+            // Teleport player to custom dimension with custom coordinates and facing
             if (event.getEntity() instanceof ServerPlayer serverPlayer) {
-                teleportPlayerToDimension(serverPlayer, playerSpawnDimension);
+                teleportPlayerToDimension(serverPlayer, playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
             }
             
         } catch (Exception e) {
@@ -113,9 +117,9 @@ public class DimensionManager {
     }
     
     /**
-     * Teleport a player to the specified dimension
+     * Teleport a player to the specified dimension with custom coordinates and facing
      */
-    private static void teleportPlayerToDimension(ServerPlayer player, String dimensionName) {
+    private static void teleportPlayerToDimension(ServerPlayer player, String dimensionName, String coordinates, String facing) {
         try {
             ResourceLocation dimensionLocation = ResourceLocation.parse(dimensionName);
             ResourceKey<Level> dimensionKey = ResourceKey.create(Registries.DIMENSION, dimensionLocation);
@@ -127,21 +131,74 @@ public class DimensionManager {
                 return;
             }
             
-            // Only teleport if player is not already in the target dimension
-            if (player.level().dimension().equals(dimensionKey)) {
-                LOGGER.debug("Player is already in target dimension: {}", dimensionName);
+            // Parse coordinates - use default spawn if empty or invalid
+            double x, y, z;
+            boolean useCustomCoordinates = false;
+            
+            if (coordinates != null && !coordinates.trim().isEmpty()) {
+                try {
+                    String[] parts = coordinates.split(",");
+                    if (parts.length != 3) {
+                        throw new IllegalArgumentException("Coordinates must be in format 'x,y,z'");
+                    }
+                    x = Double.parseDouble(parts[0].trim());
+                    y = Double.parseDouble(parts[1].trim());
+                    z = Double.parseDouble(parts[2].trim());
+                    useCustomCoordinates = true;
+                    LOGGER.debug("Using custom coordinates: ({}, {}, {})", x, y, z);
+                } catch (Exception e) {
+                    LOGGER.warn("Invalid coordinates format '{}', using default spawn", coordinates);
+                    x = targetLevel.getSharedSpawnPos().getX();
+                    y = targetLevel.getSharedSpawnPos().getY();
+                    z = targetLevel.getSharedSpawnPos().getZ();
+                }
+            } else {
+                LOGGER.debug("No custom coordinates specified, using default spawn");
+                x = targetLevel.getSharedSpawnPos().getX();
+                y = targetLevel.getSharedSpawnPos().getY();
+                z = targetLevel.getSharedSpawnPos().getZ();
+            }
+            
+            // Parse facing - use default if empty or invalid
+            float yRot = player.getYRot(); // Keep current facing as default
+            boolean useCustomFacing = false;
+            
+            if (facing != null && !facing.trim().isEmpty()) {
+                try {
+                    double facingDegrees = Double.parseDouble(facing.trim());
+                    // Convert facing to Minecraft's rotation system (0=South, 90=West, 180=North, 270=East)
+                    yRot = (float) (facingDegrees - 180.0f);
+                    if (yRot < 0) yRot += 360;
+                    useCustomFacing = true;
+                    LOGGER.debug("Using custom facing: {} degrees", facingDegrees);
+                } catch (Exception e) {
+                    LOGGER.warn("Invalid facing format '{}', using default facing", facing);
+                }
+            } else {
+                LOGGER.debug("No custom facing specified, using default facing");
+            }
+            
+            // Only teleport if player is not already in the target dimension or at the correct position
+            if (player.level().dimension().equals(dimensionKey) && useCustomCoordinates &&
+                Math.abs(player.getX() - x) < 1.0 && 
+                Math.abs(player.getY() - y) < 1.0 && 
+                Math.abs(player.getZ() - z) < 1.0) {
+                LOGGER.debug("Player is already at target location in dimension: {}", dimensionName);
                 return;
             }
             
-            LOGGER.info("Teleporting player {} to dimension: {}", player.getName().getString(), dimensionName);
+            String locationDesc = useCustomCoordinates ? 
+                String.format("at coordinates (%.1f, %.1f, %.1f)", x, y, z) : 
+                "at default spawn";
+            String facingDesc = useCustomFacing ? 
+                String.format("facing %.1f degrees", Double.parseDouble(facing)) : 
+                "with default facing";
+                
+            LOGGER.info("Teleporting player {} to dimension: {} {} {}", 
+                       player.getName().getString(), dimensionName, locationDesc, facingDesc);
             
             // Use vanilla teleportation method
-            player.teleportTo(targetLevel, 
-                targetLevel.getSharedSpawnPos().getX(), 
-                targetLevel.getSharedSpawnPos().getY(), 
-                targetLevel.getSharedSpawnPos().getZ(), 
-                player.getYRot(), 
-                player.getXRot());
+            player.teleportTo(targetLevel, x, y, z, yRot, 0.0f);
                 
             LOGGER.info("Successfully teleported player to {}", dimensionName);
             

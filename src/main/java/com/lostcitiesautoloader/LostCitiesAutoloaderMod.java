@@ -164,6 +164,8 @@ public class LostCitiesAutoloaderMod {
             LOGGER.debug("Config loaded - config_file_name: {}", AutoloaderConfigSimple.CONFIG_FILE_NAME.get());
             LOGGER.debug("Config loaded - enable_custom_spawn: {}", AutoloaderConfigSimple.ENABLE_CUSTOM_SPAWN.get());
             LOGGER.debug("Config loaded - player_spawn_dimension: {}", AutoloaderConfigSimple.PLAYER_SPAWN_DIMENSION.get());
+            LOGGER.debug("Config loaded - player_spawn_coordinates: {}", AutoloaderConfigSimple.PLAYER_SPAWN_COORDINATES.get());
+            LOGGER.debug("Config loaded - player_spawn_facing: '{}'", AutoloaderConfigSimple.PLAYER_SPAWN_FACING.get());
             LOGGER.debug("Config loaded - lost_city_dimension: {}", AutoloaderConfigSimple.LOST_CITY_DIMENSION.get());
         }
     }
@@ -176,6 +178,8 @@ public class LostCitiesAutoloaderMod {
             LOGGER.debug("Config reloaded - config_file_name: {}", AutoloaderConfigSimple.CONFIG_FILE_NAME.get());
             LOGGER.debug("Config reloaded - enable_custom_spawn: {}", AutoloaderConfigSimple.ENABLE_CUSTOM_SPAWN.get());
             LOGGER.debug("Config reloaded - player_spawn_dimension: {}", AutoloaderConfigSimple.PLAYER_SPAWN_DIMENSION.get());
+            LOGGER.debug("Config reloaded - player_spawn_coordinates: {}", AutoloaderConfigSimple.PLAYER_SPAWN_COORDINATES.get());
+            LOGGER.debug("Config reloaded - player_spawn_facing: '{}'", AutoloaderConfigSimple.PLAYER_SPAWN_FACING.get());
             LOGGER.debug("Config reloaded - lost_city_dimension: {}", AutoloaderConfigSimple.LOST_CITY_DIMENSION.get());
         }
     }
