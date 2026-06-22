@@ -86,7 +86,8 @@ public class LostCitiesAutoloaderMod {
                         "description": "Default Lost Cities profile - cities are generated normally",
                         "settings": {
                             "cityChance": 0.02,
-                            "cityRadius": 128,
+                            "cityMinRadius": 128,
+                            "cityMaxRadius": 128,
                             "generateLighting": true,
                             "generateSpawners": false,
                             "ruinChance": 0.1
@@ -106,7 +107,8 @@ public class LostCitiesAutoloaderMod {
                         "description": "Example configuration for custom dimensions - requires manual dimension config",
                         "settings": {
                             "cityChance": 0.1,
-                            "cityRadius": 200,
+                            "cityMinRadius": 200,
+                            "cityMaxRadius": 200,
                             "generateLighting": true,
                             "generateSpawners": true,
                             "ruinChance": 0.05,

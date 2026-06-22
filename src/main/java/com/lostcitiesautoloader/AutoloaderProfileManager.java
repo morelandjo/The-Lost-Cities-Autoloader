@@ -1,6 +1,6 @@
 package com.lostcitiesautoloader;
 
-import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
@@ -19,8 +19,7 @@ import java.util.Map;
  */
 public class AutoloaderProfileManager {
     private static final Logger LOGGER = LogUtils.getLogger();
-    private static final Gson GSON = new Gson();
-    
+
     private static boolean lostCitiesLoaded = false;
     private static Class<?> configClass = null;
     private static Object profileFromClientField = null;
@@ -187,39 +186,58 @@ public class AutoloaderProfileManager {
             LOGGER.info("Available Lost Cities profiles: {}", standardProfiles.keySet());
             
             if (standardProfiles.containsKey(profileName)) {
-                // Set the client profile - this is how Lost Cities knows what profile to use
-                String currentProfile = (String) ((Field)profileFromClientField).get(null);
-                LOGGER.info("Current Lost Cities profile: '{}', changing to: '{}'", currentProfile, profileName);
-                
-                ((Field)profileFromClientField).set(null, profileName);
-                
-                // Verify the change took effect
-                String newProfile = (String) ((Field)profileFromClientField).get(null);
-                LOGGER.info("Profile change verification: new profile is '{}'", newProfile);
-                
-                // If there are custom settings, we could create a custom JSON
-                if (config.has("settings")) {
-                    String customJson = GSON.toJson(config.get("settings"));
-                    String currentJson = (String) ((Field)jsonFromClientField).get(null);
-                    LOGGER.info("Current custom JSON: {}", currentJson);
-                    
-                    ((Field)jsonFromClientField).set(null, customJson);
-                    LOGGER.info("Applied custom settings for profile: {}", profileName);
-                    LOGGER.info("Custom settings JSON: {}", customJson);
-                    
-                    // Verify JSON change
-                    String newJson = (String) ((Field)jsonFromClientField).get(null);
-                    LOGGER.info("JSON change verification: new JSON is: {}", newJson);
+                // Determine whether the config provides any custom setting overrides.
+                JsonObject settings = (config.has("settings") && config.get("settings").isJsonObject())
+                        ? config.getAsJsonObject("settings") : null;
+                boolean hasSettings = settings != null && settings.size() > 0;
+
+                // The profile name we hand to Lost Cities. With no overrides this is the base
+                // profile. With overrides we must use Lost Cities' special "customized" profile -
+                // that is the ONLY profile name through which custom settings are honoured. Lost
+                // Cities builds the "customized" profile from the JSON we provide and maps the
+                // dimension to it; pointing the dimension at the base profile name leaves any
+                // custom JSON parsed-but-orphaned (which is why settings like generateLighting
+                // previously had no effect).
+                String effectiveProfile = profileName;
+                String customJson = "";
+
+                if (hasSettings) {
+                    // Build the FULL, category-nested profile JSON (base profile serialised with
+                    // toJson) and merge the user's overrides into it. Lost Cities reads each
+                    // setting from its specific category, so a flat {"generateLighting":false}
+                    // blob is never matched - the value has to live under the category that
+                    // declares it (e.g. "lostcity"). Starting from the base profile's own JSON
+                    // also preserves every setting the user did not override.
+                    String built = buildCustomizedJson(standardProfiles, profileName, settings);
+                    if (built != null) {
+                        effectiveProfile = "customized";
+                        customJson = built;
+                    } else {
+                        LOGGER.warn("Falling back to base profile '{}' without custom settings", profileName);
+                    }
                 }
-                
+
+                String currentProfile = (String) ((Field)profileFromClientField).get(null);
+                LOGGER.info("Current Lost Cities profile: '{}', changing to: '{}'", currentProfile, effectiveProfile);
+
+                ((Field)profileFromClientField).set(null, effectiveProfile);
+                ((Field)jsonFromClientField).set(null, customJson);
+
+                LOGGER.info("Profile change verification: new profile is '{}'",
+                        (String) ((Field)profileFromClientField).get(null));
+                if (hasSettings && "customized".equals(effectiveProfile)) {
+                    LOGGER.info("Applied custom settings for base profile '{}' via 'customized' profile", profileName);
+                    LOGGER.info("Customized profile JSON: {}", customJson);
+                }
+
                 // Try to refresh the Lost Cities configuration
                 refreshLostCitiesConfig();
-                
+
                 // Apply dimension-specific configuration if needed
-                applyDimensionSpecificConfiguration(profileName);
-                
-                LOGGER.info("✓ Successfully applied Lost Cities profile: '{}'", profileName);
-                
+                applyDimensionSpecificConfiguration(effectiveProfile);
+
+                LOGGER.info("✓ Successfully applied Lost Cities profile: '{}'", effectiveProfile);
+
             } else {
                 LOGGER.warn("✗ Profile '{}' not found in Lost Cities - available profiles: {}", 
                            profileName, standardProfiles.keySet());
@@ -230,6 +248,66 @@ public class AutoloaderProfileManager {
         }
     }
     
+    /**
+     * Builds the full Lost Cities profile JSON for the "customized" profile by taking the base
+     * profile's own serialised settings and overlaying the user's overrides.
+     *
+     * <p>Lost Cities serialises a profile as a category-nested object
+     * ({@code {"lostcity":{"generateLighting":...}, "explosions":{...}, ...}}) and reads each
+     * setting back from the category that declares it. The autoloader config lists overrides as a
+     * flat map, so each override is matched to whichever category already contains that key. Keys
+     * with no matching option are reported and skipped rather than silently dropped.
+     *
+     * @return the merged JSON string, or {@code null} if the base profile could not be serialised.
+     */
+    private static String buildCustomizedJson(Map<String, Object> standardProfiles, String baseProfileName,
+                                              JsonObject userSettings) {
+        try {
+            Object baseProfile = standardProfiles.get(baseProfileName);
+            if (baseProfile == null) {
+                LOGGER.warn("Base profile '{}' not found - cannot build customized settings", baseProfileName);
+                return null;
+            }
+
+            // Serialise the base profile to its full, category-nested JSON. The boolean argument is
+            // Lost Cities' "isCustom" flag; false mirrors what the in-game config GUI passes.
+            Method toJson = baseProfile.getClass().getMethod("toJson", boolean.class);
+            Object result = toJson.invoke(baseProfile, false);
+            if (!(result instanceof JsonObject)) {
+                LOGGER.warn("Unexpected toJson result for profile '{}': {}", baseProfileName, result);
+                return null;
+            }
+            JsonObject fullJson = (JsonObject) result;
+
+            for (Map.Entry<String, JsonElement> entry : userSettings.entrySet()) {
+                String key = entry.getKey();
+                boolean applied = false;
+                for (Map.Entry<String, JsonElement> category : fullJson.entrySet()) {
+                    if (!category.getValue().isJsonObject()) {
+                        continue;
+                    }
+                    JsonObject categoryObj = category.getValue().getAsJsonObject();
+                    if (categoryObj.has(key)) {
+                        categoryObj.add(key, entry.getValue());
+                        applied = true;
+                        LOGGER.info("Applied custom setting '{}' = {} (category '{}')",
+                                key, entry.getValue(), category.getKey());
+                        break;
+                    }
+                }
+                if (!applied) {
+                    LOGGER.warn("Ignoring unknown Lost Cities setting '{}' - no such option in profile '{}'",
+                            key, baseProfileName);
+                }
+            }
+
+            return fullJson.toString();
+        } catch (Exception e) {
+            LOGGER.error("Failed to build customized profile JSON for base profile '{}'", baseProfileName, e);
+            return null;
+        }
+    }
+
     private static void refreshLostCitiesConfig() {
         try {
             // Try to call resetProfileCache if it exists
