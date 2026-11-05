@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 //? neoforge {
 import net.neoforged.bus.api.SubscribeEvent;
@@ -121,7 +122,9 @@ public class DimensionManager {
             
             // Check if player has already been teleported to custom spawn
             CompoundTag persistentData = serverPlayer.getPersistentData();
-            if (persistentData.getBoolean(CUSTOM_SPAWN_TAG)) {
+            // Tag lives under PERSISTED_NBT_TAG so it survives respawn; root-level tag is the legacy location
+            CompoundTag persisted = persistentData.getCompound(Player.PERSISTED_NBT_TAG);
+            if (persisted.getBoolean(CUSTOM_SPAWN_TAG) || persistentData.getBoolean(CUSTOM_SPAWN_TAG)) {
                 LOGGER.debug("Player {} has already been teleported to custom spawn, skipping", 
                            serverPlayer.getName().getString());
                 return;
@@ -135,12 +138,18 @@ public class DimensionManager {
                        playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
             
             // Teleport player to custom dimension with custom coordinates and facing
-            teleportPlayerToDimension(serverPlayer, playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
+            boolean teleported = teleportPlayerToDimension(serverPlayer, playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
             
-            // Mark player as having been teleported to custom spawn
-            persistentData.putBoolean(CUSTOM_SPAWN_TAG, true);
-            LOGGER.debug("Marked player {} as having been teleported to custom spawn", 
-                       serverPlayer.getName().getString());
+            if (teleported) {
+                // Mark player as having been teleported to custom spawn
+                persisted.putBoolean(CUSTOM_SPAWN_TAG, true);
+                persistentData.put(Player.PERSISTED_NBT_TAG, persisted);
+                LOGGER.debug("Marked player {} as having been teleported to custom spawn", 
+                           serverPlayer.getName().getString());
+            } else {
+                LOGGER.warn("Custom spawn teleport failed for player {}, will be retried on next login",
+                           serverPlayer.getName().getString());
+            }
             
         } catch (Exception e) {
             LOGGER.error("Failed to handle custom player spawn", e);
@@ -150,7 +159,7 @@ public class DimensionManager {
     /**
      * Teleport a player to the specified dimension with custom coordinates and facing
      */
-    private static void teleportPlayerToDimension(ServerPlayer player, String dimensionName, String coordinates, String facing) {
+    private static boolean teleportPlayerToDimension(ServerPlayer player, String dimensionName, String coordinates, String facing) {
         try {
             //? >1.20.1 {
             ResourceLocation dimensionLocation = ResourceLocation.parse(dimensionName);
@@ -167,7 +176,7 @@ public class DimensionManager {
             
             if (targetLevel == null) {
                 LOGGER.error("Target dimension does not exist: {}", dimensionName);
-                return;
+                return false;
             }
             
             // Parse coordinates - use default spawn if empty or invalid
@@ -227,7 +236,7 @@ public class DimensionManager {
                 Math.abs(player.getY() - y) < 1.0 && 
                 Math.abs(player.getZ() - z) < 1.0) {
                 LOGGER.debug("Player is already at target location in dimension: {}", dimensionName);
-                return;
+                return true;
             }
             
             String locationDesc = useCustomCoordinates ? 
@@ -244,9 +253,11 @@ public class DimensionManager {
             player.teleportTo(targetLevel, x, y, z, yRot, 0.0f);
                 
             LOGGER.info("Successfully teleported player to {}", dimensionName);
+            return true;
             
         } catch (Exception e) {
             LOGGER.error("Failed to teleport player to dimension: {}", dimensionName, e);
+            return false;
         }
     }
     
