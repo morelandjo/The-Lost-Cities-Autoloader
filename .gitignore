@@ -24,3 +24,6 @@ runs
 run-data
 
 repo
+# logs / OS files
+latest_run.log
+.DS_Store

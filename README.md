@@ -7,9 +7,18 @@ Normally to get Lost Cities content in a new world you have to go through a sepa
 
 ## Requirements
 
-- Minecraft 1.21.1
-- NeoForge 21.1.186+
-- [The Lost Cities](https://www.curseforge.com/minecraft/mc-mods/the-lost-cities) mod
+### Supported Versions
+
+| Minecraft | Loader | Java |
+|-----------|--------|------|
+| 1.21.1 | NeoForge 21.1.186+ | 21 |
+| 1.20.1 | Forge 47+ | 17 |
+| 1.18.2 | Forge 40+ | 17 |
+
+Requirements:
+
+- One of the Minecraft/loader combinations above
+- [The Lost Cities](https://www.curseforge.com/minecraft/mc-mods/the-lost-cities) mod (required on every supported version)
 
 
 ## How It Works
@@ -110,8 +119,20 @@ You can override specific settings by including a `settings` object. Common sett
 - Lost Cities must support the target dimension type
 - Custom dimensions may require additional configuration
 
+## Building
 
+The project uses [Stonecutter](https://stonecutter.kikugie.dev/) to build all supported versions from one source tree. You need JDK 21 to run Gradle; the Java 17 and 21 toolchains for each version are downloaded automatically.
 
+```
+./gradlew buildAll
+```
 
+Jars are written to `versions/<node>/build/libs/lostcitiesautoloader-<mod version>-<minecraft version>.jar`, where `<node>` is `1.21.1-neoforge`, `1.20.1-forge` or `1.18.2-forge`. Jars in `devlibs` are development-only; use the ones directly in `libs`.
 
+To build a single version, run e.g. `./gradlew :1.20.1-forge:build`.
 
+## Version-Specific Code
+
+All versions share `src/main`. Code that differs between Minecraft versions or loaders is wrapped in Stonecutter comment guards (for example `//? if forge {` ... `//?}` or version-range conditions), and Stonecutter enables or disables the matching blocks for each node when it builds. The `forge` and `neoforge` constants are derived from the node name.
+
+The active version (`.sc_active_version`, currently `1.21.1-neoforge`) is the one whose code is shown uncommented in `src/main` for your IDE. Switching it rewrites source files in `src/main`, so only do it deliberately and do not commit the rewritten sources or a changed `.sc_active_version` by accident; switch back to `1.21.1-neoforge` before committing.
