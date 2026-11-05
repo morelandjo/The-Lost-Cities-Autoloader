@@ -1,16 +1,26 @@
 package com.lostcitiesautoloader;
 
 import com.mojang.logging.LogUtils;
+//? >1.18.2 {
 import net.minecraft.core.registries.Registries;
+//?} <=1.18.2 {
+/*import net.minecraft.core.Registry;
+*///?}
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
+//? neoforge {
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+//?} forge {
+/*import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+*///?}
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -22,7 +32,11 @@ import java.util.List;
 /**
  * Manages custom player spawning and dimension configuration
  */
+//? neoforge {
 @EventBusSubscriber(modid = LostCitiesAutoloaderMod.MODID)
+//?} forge {
+/*@Mod.EventBusSubscriber(modid = LostCitiesAutoloaderMod.MODID)
+*///?}
 public class DimensionManager {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String CUSTOM_SPAWN_TAG = "lostcitiesautoloader_custom_spawned";
@@ -138,8 +152,16 @@ public class DimensionManager {
      */
     private static void teleportPlayerToDimension(ServerPlayer player, String dimensionName, String coordinates, String facing) {
         try {
+            //? >1.20.1 {
             ResourceLocation dimensionLocation = ResourceLocation.parse(dimensionName);
+            //?} <=1.20.1 {
+            /*ResourceLocation dimensionLocation = new ResourceLocation(dimensionName);
+            *///?}
+            //? >1.18.2 {
             ResourceKey<Level> dimensionKey = ResourceKey.create(Registries.DIMENSION, dimensionLocation);
+            //?} <=1.18.2 {
+            /*ResourceKey<Level> dimensionKey = ResourceKey.create(Registry.DIMENSION_REGISTRY, dimensionLocation);
+            *///?}
             
             ServerLevel targetLevel = player.getServer().getLevel(dimensionKey);
             
@@ -196,7 +218,11 @@ public class DimensionManager {
             }
             
             // Only teleport if player is not already in the target dimension or at the correct position
+            //? >1.18.2 {
             if (player.level().dimension().equals(dimensionKey) && useCustomCoordinates &&
+            //?} <=1.18.2 {
+            /*if (player.getLevel().dimension().equals(dimensionKey) && useCustomCoordinates &&
+            *///?}
                 Math.abs(player.getX() - x) < 1.0 && 
                 Math.abs(player.getY() - y) < 1.0 && 
                 Math.abs(player.getZ() - z) < 1.0) {

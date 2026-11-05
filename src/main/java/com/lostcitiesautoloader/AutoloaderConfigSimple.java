@@ -1,9 +1,14 @@
 package com.lostcitiesautoloader;
 
+//? neoforge {
 import net.neoforged.neoforge.common.ModConfigSpec;
+//?} forge {
+/*import net.minecraftforge.common.ForgeConfigSpec;
+*///?}
 
 public class AutoloaderConfigSimple {
     
+    //? neoforge {
     public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     public static final ModConfigSpec SPEC;
     
@@ -15,6 +20,19 @@ public class AutoloaderConfigSimple {
     public static final ModConfigSpec.ConfigValue<String> PLAYER_SPAWN_DIMENSION;
     public static final ModConfigSpec.ConfigValue<String> PLAYER_SPAWN_COORDINATES;
     public static final ModConfigSpec.ConfigValue<String> PLAYER_SPAWN_FACING;
+    //?} forge {
+    /*public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final ForgeConfigSpec SPEC;
+    
+    // All config values in one section with descriptive names
+    public static final ForgeConfigSpec.BooleanValue ENABLE_AUTOLOADER;
+    public static final ForgeConfigSpec.ConfigValue<String> CONFIG_FILE_NAME;
+    public static final ForgeConfigSpec.ConfigValue<String> LOST_CITY_DIMENSION;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_CUSTOM_SPAWN;
+    public static final ForgeConfigSpec.ConfigValue<String> PLAYER_SPAWN_DIMENSION;
+    public static final ForgeConfigSpec.ConfigValue<String> PLAYER_SPAWN_COORDINATES;
+    public static final ForgeConfigSpec.ConfigValue<String> PLAYER_SPAWN_FACING;
+    *///?}
     
     static {
         BUILDER.comment("Lost Cities Autoloader Configuration");

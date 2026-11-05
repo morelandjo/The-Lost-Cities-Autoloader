@@ -4,7 +4,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
+//? neoforge {
 import net.neoforged.fml.ModList;
+//?} forge {
+/*import net.minecraftforge.fml.ModList;
+*///?}
 import org.slf4j.Logger;
 
 import java.lang.reflect.Field;
@@ -330,26 +334,6 @@ public class AutoloaderProfileManager {
         } catch (Exception e) {
             LOGGER.debug("Could not refresh Lost Cities config", e);
         }
-    }
-    
-    public static void applyToNewWorld() {
-        // Check if config is available and enabled before proceeding
-        try {
-            if (!AutoloaderConfig.CONFIG.enableAutoloader.get()) {
-                return;
-            }
-        } catch (Exception e) {
-            LOGGER.debug("Config not available yet, skipping autoloader");
-            return;
-        }
-        
-        if (!lostCitiesLoaded) {
-            return;
-        }
-        
-        // This method is called when a new world/level is loaded
-        // We can re-apply our configuration to ensure it takes effect
-        loadAndApplyConfiguration();
     }
     
     public static boolean isLostCitiesAvailable() {

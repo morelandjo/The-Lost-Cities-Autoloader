@@ -1,6 +1,7 @@
 package com.lostcitiesautoloader;
 
 import com.mojang.logging.LogUtils;
+//? neoforge {
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -9,9 +10,31 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
+//?} forge {
+/*import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+*///?}
+//? >1.20.1 {
 import net.neoforged.neoforge.event.level.LevelEvent;
+//?} >1.18.2 {
+/*import net.minecraftforge.event.level.LevelEvent;
+*///?} <=1.18.2 {
+/*import net.minecraftforge.event.world.WorldEvent;
+*///?}
+//? neoforge {
 import net.neoforged.neoforge.event.server.ServerAboutToStartEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+//?} forge {
+/*import net.minecraftforge.event.server.ServerAboutToStartEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
+*///?}
 import org.slf4j.Logger;
 
 import java.io.IOException;
@@ -27,10 +50,17 @@ public class LostCitiesAutoloaderMod {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    //? neoforge {
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public LostCitiesAutoloaderMod(IEventBus modEventBus, ModContainer modContainer) {
+    //?} forge {
+    /*public LostCitiesAutoloaderMod() {
+    *///?}
         LOGGER.info("Lost Cities Autoloader: Initializing mod");
+        //? forge {
+        /*IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        *///?}
         
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -40,10 +70,19 @@ public class LostCitiesAutoloaderMod {
         modEventBus.addListener(this::onConfigReloading);
 
         // Register ourselves for server and other game events we are interested in.
+        //? neoforge {
         NeoForge.EVENT_BUS.register(this);
+        //?} forge {
+        /*MinecraftForge.EVENT_BUS.register(this);
+        *///?}
 
+        //? neoforge {
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, AutoloaderConfigSimple.SPEC);
+        //?} forge {
+        /*// Register our mod's ForgeConfigSpec so that FML can create and load the config file for us
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, AutoloaderConfigSimple.SPEC);
+        *///?}
         
         LOGGER.info("Lost Cities Autoloader: Mod initialization complete");
     }
@@ -144,14 +183,26 @@ public class LostCitiesAutoloaderMod {
     }
 
     @SubscribeEvent
+    //? >1.18.2 {
     public void onLevelLoad(LevelEvent.Load event) {
+    //?} <=1.18.2 {
+    /*public void onLevelLoad(WorldEvent.Load event) {
+    *///?}
         // This gets called when a level is loaded - we can use this to ensure 
         // our profile is applied to new worlds, but only if config is ready
+        //? >1.18.2 {
         if (event.getLevel().isClientSide()) {
+        //?} <=1.18.2 {
+        /*if (event.getWorld().isClientSide()) {
+        *///?}
             return; // Only process on server side
         }
         
+        //? >1.18.2 {
         LOGGER.debug("Level loaded: {}", event.getLevel());
+        //?} <=1.18.2 {
+        /*LOGGER.debug("Level loaded: {}", event.getWorld());
+        *///?}
         
         // Try to apply the configuration when each world loads
         // This ensures we catch newly created worlds
