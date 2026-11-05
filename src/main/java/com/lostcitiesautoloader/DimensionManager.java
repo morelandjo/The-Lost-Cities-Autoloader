@@ -1,6 +1,8 @@
 package com.lostcitiesautoloader;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 //? >1.18.2 {
 import net.minecraft.core.registries.Registries;
 //?} <=1.18.2 {
@@ -14,6 +16,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 //? neoforge {
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -36,6 +40,10 @@ import org.slf4j.Logger;
 public class DimensionManager {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String CUSTOM_SPAWN_TAG = "lostcitiesautoloader_custom_spawned";
+    /** How far from the shared spawn, in blocks along X and Z, to look for a safe spot */
+    private static final int SAFE_SPAWN_SEARCH_RADIUS = 24;
+    /** How far above and below the shared spawn Y to look before accepting any height in the column */
+    private static final int SAFE_SPAWN_PREFERRED_Y_RANGE = 8;
     private static String reportedInvalidDimension = null;
     
     /**
@@ -147,8 +155,14 @@ public class DimensionManager {
                 return false;
             }
             
-            // Parse coordinates - use default spawn if empty or invalid
-            double x, y, z;
+            //? >1.18.2 {
+            ResourceKey<Level> currentDimension = player.level().dimension();
+            //?} <=1.18.2 {
+            /*ResourceKey<Level> currentDimension = player.getLevel().dimension();
+            *///?}
+            
+            // Parse coordinates - use a safe spot near the default spawn if empty or invalid
+            double x = 0, y = 0, z = 0;
             boolean useCustomCoordinates = false;
             
             if (coordinates != null && !coordinates.trim().isEmpty()) {
@@ -164,15 +178,26 @@ public class DimensionManager {
                     LOGGER.debug("Using custom coordinates: ({}, {}, {})", x, y, z);
                 } catch (Exception e) {
                     LOGGER.warn("Invalid coordinates format '{}', using default spawn", coordinates);
-                    x = targetLevel.getSharedSpawnPos().getX();
-                    y = targetLevel.getSharedSpawnPos().getY();
-                    z = targetLevel.getSharedSpawnPos().getZ();
                 }
             } else {
                 LOGGER.debug("No custom coordinates specified, using default spawn");
-                x = targetLevel.getSharedSpawnPos().getX();
-                y = targetLevel.getSharedSpawnPos().getY();
-                z = targetLevel.getSharedSpawnPos().getZ();
+            }
+            
+            if (!useCustomCoordinates) {
+                if (currentDimension.equals(dimensionKey)) {
+                    LOGGER.debug("Player is already in target dimension {} and no coordinates are set, not teleporting", dimensionName);
+                    return true;
+                }
+                
+                BlockPos safeSpawn = findSafeSpawnPos(targetLevel);
+                if (safeSpawn == null) {
+                    LOGGER.warn("No safe spawn found within {} blocks of {} in dimension {}, not teleporting",
+                               SAFE_SPAWN_SEARCH_RADIUS, targetLevel.getSharedSpawnPos(), dimensionName);
+                    return false;
+                }
+                x = safeSpawn.getX() + 0.5;
+                y = safeSpawn.getY();
+                z = safeSpawn.getZ() + 0.5;
             }
             
             // Parse facing - use default if empty or invalid
@@ -195,11 +220,7 @@ public class DimensionManager {
             }
             
             // Only teleport if player is not already in the target dimension or at the correct position
-            //? >1.18.2 {
-            if (player.level().dimension().equals(dimensionKey) && useCustomCoordinates &&
-            //?} <=1.18.2 {
-            /*if (player.getLevel().dimension().equals(dimensionKey) && useCustomCoordinates &&
-            *///?}
+            if (currentDimension.equals(dimensionKey) && useCustomCoordinates &&
                 Math.abs(player.getX() - x) < 1.0 && 
                 Math.abs(player.getY() - y) < 1.0 && 
                 Math.abs(player.getZ() - z) < 1.0) {
@@ -209,7 +230,7 @@ public class DimensionManager {
             
             String locationDesc = useCustomCoordinates ? 
                 String.format("at coordinates (%.1f, %.1f, %.1f)", x, y, z) : 
-                "at default spawn";
+                String.format("at safe spot (%.1f, %.1f, %.1f) near default spawn", x, y, z);
             String facingDesc = useCustomFacing ? 
                 String.format("facing %.1f degrees", Double.parseDouble(facing)) : 
                 "with default facing";
@@ -227,6 +248,76 @@ public class DimensionManager {
             LOGGER.error("Failed to teleport player to dimension: {}", dimensionName, e);
             return false;
         }
+    }
+    
+    /**
+     * Find where a player can safely stand near a level's shared spawn. Looks at the blocks themselves
+     * because a surface heightmap gives the roof in dimensions with a solid ceiling.
+     *
+     * @return the position of the player's feet, or null if there is no safe spot in range
+     */
+    static BlockPos findSafeSpawnPos(ServerLevel level) {
+        BlockPos spawn = level.getSharedSpawnPos();
+        int minFeetY = level.getMinBuildHeight() + 1;
+        int maxFeetY = level.getMaxBuildHeight() - 2;
+        
+        BlockPos found = null;
+        if (spawn.getY() >= minFeetY && spawn.getY() <= maxFeetY) {
+            found = searchColumns(level, spawn, spawn.getY(), minFeetY, maxFeetY, SAFE_SPAWN_PREFERRED_Y_RANGE);
+        }
+        if (found == null) {
+            // The spawn Y can be outside the build range, so fall back to the sea level as the starting height
+            int startY = spawn.getY() >= minFeetY && spawn.getY() <= maxFeetY ? spawn.getY()
+                    : Math.max(minFeetY, Math.min(maxFeetY, level.getSeaLevel()));
+            found = searchColumns(level, spawn, startY, minFeetY, maxFeetY, maxFeetY - minFeetY);
+        }
+        return found;
+    }
+    
+    /**
+     * Check columns in growing squares around the spawn, moving out from startY in each column
+     */
+    private static BlockPos searchColumns(ServerLevel level, BlockPos spawn, int startY, int minFeetY, int maxFeetY, int yRange) {
+        BlockPos.MutableBlockPos feet = new BlockPos.MutableBlockPos();
+        for (int radius = 0; radius <= SAFE_SPAWN_SEARCH_RADIUS; radius++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dz = -radius; dz <= radius; dz++) {
+                    if (Math.max(Math.abs(dx), Math.abs(dz)) != radius) {
+                        continue;
+                    }
+                    int columnX = spawn.getX() + dx;
+                    int columnZ = spawn.getZ() + dz;
+                    if (!level.getWorldBorder().isWithinBounds(feet.set(columnX, startY, columnZ))) {
+                        continue;
+                    }
+                    for (int dy = 0; dy <= yRange; dy++) {
+                        int above = startY + dy;
+                        if (above <= maxFeetY && isSafeToStand(level, feet.set(columnX, above, columnZ))) {
+                            return feet.immutable();
+                        }
+                        int below = startY - dy;
+                        if (dy > 0 && below >= minFeetY && isSafeToStand(level, feet.set(columnX, below, columnZ))) {
+                            return feet.immutable();
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * A sturdy, harmless floor with two blocks of air above it
+     */
+    private static boolean isSafeToStand(ServerLevel level, BlockPos feet) {
+        if (!level.getBlockState(feet).isAir() || !level.getBlockState(feet.above()).isAir()) {
+            return false;
+        }
+        BlockPos floorPos = feet.below();
+        BlockState floor = level.getBlockState(floorPos);
+        return floor.isFaceSturdy(level, floorPos, Direction.UP)
+                && floor.getFluidState().isEmpty()
+                && !floor.is(Blocks.MAGMA_BLOCK);
     }
     
     /**
