@@ -2,6 +2,7 @@ package com.lostcitiesautoloader;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -24,6 +25,7 @@ import java.util.List;
 @EventBusSubscriber(modid = LostCitiesAutoloaderMod.MODID)
 public class DimensionManager {
     private static final Logger LOGGER = LogUtils.getLogger();
+    private static final String CUSTOM_SPAWN_TAG = "lostcitiesautoloader_custom_spawned";
     
     /**
      * Apply dimension configuration to Lost Cities
@@ -87,7 +89,7 @@ public class DimensionManager {
     }
     
     /**
-     * Handle player login to potentially teleport to custom spawn dimension
+     * Handle player login to potentially teleport to custom spawn dimension (only on first spawn)
      */
     @SubscribeEvent
     public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
@@ -99,6 +101,18 @@ public class DimensionManager {
                 return;
             }
             
+            if (!(event.getEntity() instanceof ServerPlayer serverPlayer)) {
+                return;
+            }
+            
+            // Check if player has already been teleported to custom spawn
+            CompoundTag persistentData = serverPlayer.getPersistentData();
+            if (persistentData.getBoolean(CUSTOM_SPAWN_TAG)) {
+                LOGGER.debug("Player {} has already been teleported to custom spawn, skipping", 
+                           serverPlayer.getName().getString());
+                return;
+            }
+            
             String playerSpawnDimension = AutoloaderConfigSimple.PLAYER_SPAWN_DIMENSION.get();
             String playerSpawnCoordinates = AutoloaderConfigSimple.PLAYER_SPAWN_COORDINATES.get();
             String playerSpawnFacing = AutoloaderConfigSimple.PLAYER_SPAWN_FACING.get();
@@ -107,9 +121,12 @@ public class DimensionManager {
                        playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
             
             // Teleport player to custom dimension with custom coordinates and facing
-            if (event.getEntity() instanceof ServerPlayer serverPlayer) {
-                teleportPlayerToDimension(serverPlayer, playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
-            }
+            teleportPlayerToDimension(serverPlayer, playerSpawnDimension, playerSpawnCoordinates, playerSpawnFacing);
+            
+            // Mark player as having been teleported to custom spawn
+            persistentData.putBoolean(CUSTOM_SPAWN_TAG, true);
+            LOGGER.debug("Marked player {} as having been teleported to custom spawn", 
+                       serverPlayer.getName().getString());
             
         } catch (Exception e) {
             LOGGER.error("Failed to handle custom player spawn", e);
