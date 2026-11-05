@@ -69,6 +69,10 @@ public class LostCitiesAutoloaderMod {
         modEventBus.addListener(this::onConfigLoading);
         modEventBus.addListener(this::onConfigReloading);
 
+        //? >1.18.2 {
+        TargetDimensionBiomeModifier.register(modEventBus);
+        //?}
+
         // Register ourselves for server and other game events we are interested in.
         //? neoforge {
         NeoForge.EVENT_BUS.register(this);
@@ -180,6 +184,7 @@ public class LostCitiesAutoloaderMod {
         // Additional safety check - apply configuration again if needed
         // This ensures we catch any cases where the early application didn't work
         AutoloaderProfileManager.loadAndApplyConfiguration();
+        DimensionManager.verifyLostCityDimension(event.getServer());
     }
 
     @SubscribeEvent

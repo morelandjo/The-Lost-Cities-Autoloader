@@ -1,0 +1,5 @@
+{
+  "type": "lostcitiesautoloader:target_dimension_features",
+  "features": "lostcities:lostcities",
+  "step": "raw_generation"
+}

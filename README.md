@@ -104,6 +104,9 @@ You can override specific settings by including a `settings` object. Common sett
   - Use `"minecraft:the_nether"` for nether
   - Use `"minecraft:the_end"` for end  
   - Use custom dimension IDs like `"lostcities:lostcity"` for mod dimensions
+  - Any dimension in the world works: Lost Cities is added to its biomes automatically, and it uses the profile from your JSON file (or `default` if there is none)
+  - When this is not the overworld, the profile is not applied to the overworld, so it gets no cities. This also clears any profile stored with an existing world
+  - `config/lostcities/common.toml` is not changed
 - `enableCustomSpawn` - Enable custom player spawn dimension (default: false)
 - `playerSpawnDimension` - Dimension where players spawn (default: "minecraft:overworld")
 
@@ -116,8 +119,8 @@ You can override specific settings by including a `settings` object. Common sett
 ### Dimension Requirements
 - This is a fun little addition allowing you to start a world right in a specific dimension, such as Nether with cities.
 - Target dimensions must exist (provided by mods or vanilla)
-- Lost Cities must support the target dimension type
-- Custom dimensions may require additional configuration
+- A missing or invalid target dimension is logged as an error and gets no cities
+- Cities replace the target dimension's own terrain where they generate, so how they look depends on that dimension's generator
 
 ## Building
 

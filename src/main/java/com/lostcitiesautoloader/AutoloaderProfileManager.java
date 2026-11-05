@@ -9,6 +9,12 @@ import net.neoforged.fml.ModList;
 //?} forge {
 /*import net.minecraftforge.fml.ModList;
 *///?}
+//? >1.20.1 {
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.server.ServerLifecycleHooks;
+//?}
 import org.slf4j.Logger;
 
 import java.lang.reflect.Field;
@@ -16,6 +22,8 @@ import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +38,8 @@ public class AutoloaderProfileManager {
     private static Object jsonFromClientField = null;
     private static Class<?> profileSetupClass = null;
     private static Object standardProfilesField = null;
+    // The profile the lost_city_dimension target should use; "default" unless the JSON config names another
+    private static String targetProfile = "default";
     
     static {
         checkLostCitiesAvailability();
@@ -112,6 +122,7 @@ public class AutoloaderProfileManager {
         }
 
         try {
+            targetProfile = "default";
             Path configDir = Paths.get("config", "lost_cities_autoloader");
             if (!Files.exists(configDir)) {
                 LOGGER.info("No autoloader configuration directory found - no profile will be applied");
@@ -158,6 +169,7 @@ public class AutoloaderProfileManager {
             
             // Delegate to DimensionManager for actual implementation
             DimensionManager.applyDimensionConfiguration();
+            applyDimensionProfiles();
             
         } catch (Exception e) {
             LOGGER.error("Failed to apply dimension configuration", e);
@@ -221,24 +233,24 @@ public class AutoloaderProfileManager {
                     }
                 }
 
-                String currentProfile = (String) ((Field)profileFromClientField).get(null);
-                LOGGER.info("Current Lost Cities profile: '{}', changing to: '{}'", currentProfile, effectiveProfile);
+                targetProfile = effectiveProfile;
 
-                ((Field)profileFromClientField).set(null, effectiveProfile);
-                ((Field)jsonFromClientField).set(null, customJson);
+                if (DimensionManager.isOverworldTarget()) {
+                    String currentProfile = (String) ((Field)profileFromClientField).get(null);
+                    LOGGER.info("Current Lost Cities profile: '{}', changing to: '{}'", currentProfile, effectiveProfile);
 
-                LOGGER.info("Profile change verification: new profile is '{}'",
-                        (String) ((Field)profileFromClientField).get(null));
+                    ((Field)profileFromClientField).set(null, effectiveProfile);
+                    ((Field)jsonFromClientField).set(null, customJson);
+
+                    LOGGER.info("Profile change verification: new profile is '{}'",
+                            (String) ((Field)profileFromClientField).get(null));
+                } else if (!customJson.isEmpty()) {
+                    registerCustomizedProfile(standardProfiles, customJson);
+                }
                 if (hasSettings && "customized".equals(effectiveProfile)) {
                     LOGGER.info("Applied custom settings for base profile '{}' via 'customized' profile", profileName);
                     LOGGER.info("Customized profile JSON: {}", customJson);
                 }
-
-                // Try to refresh the Lost Cities configuration
-                refreshLostCitiesConfig();
-
-                // Apply dimension-specific configuration if needed
-                applyDimensionSpecificConfiguration(effectiveProfile);
 
                 LOGGER.info("✓ Successfully applied Lost Cities profile: '{}'", effectiveProfile);
 
@@ -355,62 +367,98 @@ public class AutoloaderProfileManager {
         }
     }
     
-    private static void applyDimensionSpecificConfiguration(String profileName) {
+    /**
+     * Makes the "customized" profile available by name. Lost Cities only creates it for the profile
+     * selected for the overworld, and rejects list entries naming a profile that does not exist yet.
+     */
+    private static void registerCustomizedProfile(Map<String, Object> standardProfiles, String json) throws Exception {
+        Class<?> profileClass = Class.forName("mcjty.lostcities.config.LostCityProfile");
+        if (!standardProfiles.containsKey("customized")) {
+            standardProfiles.put("customized",
+                    profileClass.getConstructor(String.class, boolean.class).newInstance("customized", false));
+        }
+        Object parsed = profileClass.getConstructor(String.class, String.class).newInstance("customized", json);
+        profileClass.getMethod("copyFrom", profileClass).invoke(standardProfiles.get("customized"), parsed);
+    }
+
+    /**
+     * Maps the target dimension to its profile in Lost Cities' dimensionsWithProfiles value, in memory
+     * only: Lost Cities rebuilds its profile map from that value whenever its caches are cleaned, so
+     * entries added to the map itself do not last, and common.toml stays the user's. Other entries are kept.
+     * A non-overworld target also takes the profile away from the overworld.
+     */
+    private static void applyDimensionProfiles() {
+        if (DimensionManager.getLostCityDimensionKey() == null) {
+            return; // Invalid ID, already logged. Lost Cities would throw parsing it, so never hand it over.
+        }
         try {
-            String lostCityDimension = DimensionManager.getLostCityDimensionConfiguration();
-            
-            if (!"minecraft:overworld".equals(lostCityDimension)) {
-                LOGGER.info("Configuring Lost Cities profile '{}' for dimension: {}", profileName, lostCityDimension);
-                
-                // Try to access and modify Lost Cities dimension configuration
-                try {
-                    // Look for the Lost Cities config class that handles dimension profiles
-                    Class<?> lostCitiesConfig = Class.forName("mcjty.lostcities.setup.Config");
-                    
-                    // Try to find the dimensionsWithProfiles field
-                    Field dimensionsField = lostCitiesConfig.getDeclaredField("dimensionsWithProfiles");
-                    dimensionsField.setAccessible(true);
-                    
-                    @SuppressWarnings("unchecked")
-                    java.util.List<String> dimensionProfiles = (java.util.List<String>) dimensionsField.get(null);
-                    
-                    if (dimensionProfiles != null) {
-                        // Create the dimension profile entry
-                        String dimensionProfileEntry = lostCityDimension + "=" + profileName;
-                        
-                        // Check if this dimension is already configured
-                        boolean found = false;
-                        for (int i = 0; i < dimensionProfiles.size(); i++) {
-                            String entry = dimensionProfiles.get(i);
-                            if (entry.startsWith(lostCityDimension + "=")) {
-                                // Update existing entry
-                                dimensionProfiles.set(i, dimensionProfileEntry);
-                                found = true;
-                                LOGGER.info("Updated Lost Cities dimension profile: {}", dimensionProfileEntry);
-                                break;
-                            }
-                        }
-                        
-                        if (!found) {
-                            // Add new entry
-                            dimensionProfiles.add(dimensionProfileEntry);
-                            LOGGER.info("Added Lost Cities dimension profile: {}", dimensionProfileEntry);
-                        }
-                        
-                        LOGGER.info("Lost Cities dimensions with profiles: {}", dimensionProfiles);
-                    }
-                    
-                } catch (ClassNotFoundException e) {
-                    LOGGER.warn("Lost Cities config class not found - dimension configuration not applied");
-                } catch (NoSuchFieldException e) {
-                    LOGGER.warn("Lost Cities dimensionsWithProfiles field not found - dimension configuration not applied");
-                } catch (Exception e) {
-                    LOGGER.warn("Failed to modify Lost Cities dimension configuration: {}", e.getMessage());
+            String target = DimensionManager.getLostCityDimensionConfiguration();
+            boolean overworldTarget = DimensionManager.isOverworldTarget();
+
+            Field profilesField = configClass.getDeclaredField("DIMENSION_PROFILES");
+            profilesField.setAccessible(true);
+            Object profilesValue = profilesField.get(null);
+            // Drop any earlier override so the entries below are the ones in common.toml
+            profilesValue.getClass().getMethod("clearCache").invoke(profilesValue);
+            List<?> configured = (List<?>) profilesValue.getClass().getMethod("get").invoke(profilesValue);
+
+            List<String> merged = new ArrayList<>();
+            for (Object entry : configured) {
+                String dimension = entry.toString().split("=", 2)[0];
+                if (!overworldTarget && dimension.equals("minecraft:overworld")) {
+                    LOGGER.info("Ignoring Lost Cities entry '{}': lost_city_dimension is {}", entry, target);
+                } else if (!dimension.equals(target)) {
+                    merged.add(entry.toString());
                 }
             }
-            
+            // For the overworld, the JSON's profile goes through Lost Cities' own selection (profileFromClient)
+            merged.add(target + "=" + (overworldTarget ? "default" : targetProfile));
+
+            Field cachedValue = profilesValue.getClass().getDeclaredField("cachedValue");
+            cachedValue.setAccessible(true);
+            cachedValue.set(profilesValue, merged);
+            LOGGER.info("Lost Cities dimensions with profiles: {}", merged);
+
+            if (!overworldTarget) {
+                ((Field)profileFromClientField).set(null, null);
+                ((Field)jsonFromClientField).set(null, null);
+                clearStoredOverworldSelection();
+            }
+            refreshLostCitiesConfig();
         } catch (Exception e) {
-            LOGGER.error("Failed to apply dimension-specific configuration", e);
+            LOGGER.error("Failed to configure Lost Cities for dimension {}", DimensionManager.getLostCityDimensionConfiguration(), e);
         }
+    }
+
+    /**
+     * A selection stored with the world would give the overworld a profile again and overwrite the
+     * "customized" profile with its own JSON, so it is cleared while another dimension is the target.
+     */
+    private static void clearStoredOverworldSelection() throws Exception {
+        //? >1.20.1 {
+        // Stored in the world's lostcities_data, reachable from the first level load onwards (retried on each).
+        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+        ServerLevel overworld = server == null ? null : server.getLevel(Level.OVERWORLD);
+        if (overworld == null) {
+            return;
+        }
+        Class<?> lostDataClass = Class.forName("mcjty.lostcities.data.LostData");
+        Object data = lostDataClass.getMethod("getData", Level.class).invoke(null, overworld);
+        if (!"".equals(lostDataClass.getMethod("getSelectedProfile").invoke(data))) {
+            LOGGER.info("Clearing the Lost Cities overworld profile stored with this world");
+            lostDataClass.getMethod("setProfile", String.class, String.class).invoke(data, "", "");
+        }
+        //?} <=1.20.1 {
+        /*// Stored in the world's server config, which is loaded before ServerAboutToStartEvent.
+        Object selected = configClass.getField("SELECTED_PROFILE").get(null);
+        Method get = selected.getClass().getMethod("get");
+        Method set = selected.getClass().getMethod("set", Object.class);
+        Object current = get.invoke(selected);
+        if (!"".equals(current) && !"<CHECK>".equals(current)) {
+            LOGGER.info("Clearing the Lost Cities overworld profile stored with this world");
+            set.invoke(selected, "");
+            set.invoke(configClass.getField("SELECTED_CUSTOM_JSON").get(null), "");
+        }
+        *///?}
     }
 }

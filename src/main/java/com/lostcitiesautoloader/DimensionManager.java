@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
@@ -24,12 +25,6 @@ import net.minecraftforge.fml.common.Mod;
 *///?}
 import org.slf4j.Logger;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-
 /**
  * Manages custom player spawning and dimension configuration
  */
@@ -41,6 +36,7 @@ import java.util.List;
 public class DimensionManager {
     private static final Logger LOGGER = LogUtils.getLogger();
     private static final String CUSTOM_SPAWN_TAG = "lostcitiesautoloader_custom_spawned";
+    private static String reportedInvalidDimension = null;
     
     /**
      * Apply dimension configuration to Lost Cities
@@ -56,50 +52,22 @@ public class DimensionManager {
             LOGGER.info("  Player spawn dimension: {}", playerSpawnDimension);
             LOGGER.info("  Lost city dimension: {}", lostCityDimension);
             
-            // Apply Lost Cities dimension configuration
-            updateLostCitiesDimensionConfig(lostCityDimension);
-            
         } catch (Exception e) {
             LOGGER.error("Failed to apply dimension configuration", e);
         }
     }
     
     /**
-     * Update Lost Cities configuration to generate in the specified dimension
+     * Report a lost_city_dimension target that no level exists for. Call once the levels are created.
      */
-    private static void updateLostCitiesDimensionConfig(String targetDimension) {
-        try {
-            Path configPath = Paths.get("config/lostcities/common.toml");
-            
-            if (!Files.exists(configPath)) {
-                LOGGER.warn("Lost Cities config file not found at: {}", configPath);
-                return;
-            }
-            
-            List<String> lines = Files.readAllLines(configPath);
-            boolean updated = false;
-            
-            for (int i = 0; i < lines.size(); i++) {
-                String line = lines.get(i);
-                if (line.trim().startsWith("dimensionsWithProfiles")) {
-                    // Update the dimensionsWithProfiles setting
-                    String newLine = "\tdimensionsWithProfiles = [\"" + targetDimension + "=default\"]";
-                    lines.set(i, newLine);
-                    updated = true;
-                    LOGGER.info("Updated Lost Cities dimension configuration to: {}", targetDimension);
-                    break;
-                }
-            }
-            
-            if (updated) {
-                Files.write(configPath, lines);
-                LOGGER.info("Lost Cities configuration file updated successfully");
-            } else {
-                LOGGER.warn("Could not find dimensionsWithProfiles setting in Lost Cities config");
-            }
-            
-        } catch (IOException e) {
-            LOGGER.error("Failed to update Lost Cities dimension configuration", e);
+    public static void verifyLostCityDimension(MinecraftServer server) {
+        String target = AutoloaderConfigSimple.LOST_CITY_DIMENSION.get();
+        ResourceKey<Level> key = getLostCityDimensionKey();
+        if (key == null) {
+            return; // Already reported by getLostCityDimensionKey
+        }
+        if (server.getLevel(key) == null) {
+            LOGGER.error("Lost Cities target dimension '{}' does not exist in this world - no cities will generate there", target);
         }
     }
     
@@ -266,6 +234,37 @@ public class DimensionManager {
      */
     public static String getLostCityDimensionConfiguration() {
         return AutoloaderConfigSimple.LOST_CITY_DIMENSION.get();
+    }
+    
+    /**
+     * Whether Lost Cities targets the overworld, the case Lost Cities' own profile selection handles
+     */
+    public static boolean isOverworldTarget() {
+        return Level.OVERWORLD.equals(getLostCityDimensionKey());
+    }
+    
+    /**
+     * Get the configured Lost Cities dimension as a key
+     *
+     * @return the key, or null (after logging an error) if the configured value is not a valid ID
+     */
+    public static ResourceKey<Level> getLostCityDimensionKey() {
+        String target = getLostCityDimensionConfiguration();
+        ResourceLocation location = ResourceLocation.tryParse(target);
+        if (location == null) {
+            // Called once per biome by the biome modifier, so only report each bad value once
+            if (target.equals(reportedInvalidDimension)) {
+                return null;
+            }
+            reportedInvalidDimension = target;
+            LOGGER.error("lost_city_dimension '{}' is not a valid dimension ID - Lost Cities will not be configured for it", target);
+            return null;
+        }
+        //? >1.18.2 {
+        return ResourceKey.create(Registries.DIMENSION, location);
+        //?} <=1.18.2 {
+        /*return ResourceKey.create(Registry.DIMENSION_REGISTRY, location);
+        *///?}
     }
     
     /**
