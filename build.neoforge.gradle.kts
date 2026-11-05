@@ -16,9 +16,6 @@ base.archivesName = modId
 java.toolchain.languageVersion = JavaLanguageVersion.of((property("java_version") as String).toInt())
 
 repositories {
-    // McJtyMods Maven repository for Lost Cities
-    maven("https://maven.mcjty.eu/") { name = "McJtyMods" }
-
     // CurseMaven for mods
     maven("https://cursemaven.com") {
         name = "CurseMaven"
